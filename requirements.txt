@@ -1,0 +1,8 @@
+fastapi[standard]
+pyjwt
+passlib[bcrypt]
+sqlalchemy
+pydantic-settings
+pytest
+pytest-csv
+pdoc3
