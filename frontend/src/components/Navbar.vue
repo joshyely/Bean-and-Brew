@@ -1,5 +1,6 @@
 <script setup>
 import Logo from './Logo.vue'
+import Theme from './Theme.vue';
 </script>
 
 <template>
@@ -9,12 +10,16 @@ import Logo from './Logo.vue'
         <RouterLink to="/">About</RouterLink>
         <RouterLink to="/">Contact</RouterLink>
     </nav>
+    <Theme />
 </div>
 </template>
 
 
 <style scoped>
 
+.wrapper{
+    background-color: rgb(50, 50, 50);
+}
 
 @media(min-width: 800px){
     .wrapper{
