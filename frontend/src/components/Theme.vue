@@ -32,25 +32,39 @@ getSavedTheme();
 </script>
 
 <template>
-<button @click="toggleTheme">
-    <LightTheme v-if="theme === 'light'"/>
-    <DarkTheme v-else-if="theme === 'dark'"/>
-</button>
+<div id="theme-btn" @click="toggleTheme">
+    <LightTheme id="light-icon" v-if="theme === 'light'"/>
+    <DarkTheme id="dark-icon" v-else-if="theme === 'dark'"/>
+</div>
 </template>
 
 <style scoped>
-button {
-    --btn-size: 50px;
+
+
+#theme-btn {
+    --btn-size: 25px;
     display: flex;
-    border-radius: 5em;
+    border-radius: 50%;
     align-items: center;
     justify-content: center;
     width: var(--btn-size);
     height: var(--btn-size);
+    border-style: none;
 }
-svg{
-    --icon-size: 80%;
-    width: var(--icon-size);
-    height: var(--icon-size);
+#theme-btn:hover svg{
+    fill: var(--color-theme-icon-hover);
+    cursor:pointer;
+    transition: fill .25s ease;
+}
+
+#theme-btn svg {
+    fill: var(--color-theme-icon);
+}
+
+@media (max-width: 1024px) {
+    #theme-btn{
+        --btn-size:32px;
+        margin: 10px;
+    }
 }
 </style>

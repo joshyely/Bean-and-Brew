@@ -1,12 +1,19 @@
 <template>
-    <svg xmlns="http://www.w3.org/2000/svg">
+    <svg class="logo" xmlns="http://www.w3.org/2000/svg">
         <image href="../assets/logo.jpg" />
     </svg>
 </template>
 
 <style scroped>
-    svg, image {
-        width: 80px;
-        height: 80px;
+    svg{
+        --logo-size: 80px;
+        display:block;
+        height: var(--logo-size);
+        width: var(--logo-size);
+        padding: 0;  
+    }
+    image{
+        height: 100%;
+        width: 100%;
     }
 </style>
