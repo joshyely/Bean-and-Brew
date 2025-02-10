@@ -14,7 +14,7 @@
   --vt-c-indigo: #2c3e50;
 
   --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
-  --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
+  --vt-c-divider-light-2: rgba(60, 60, 60, 0.23);
   --vt-c-divider-dark-1: rgba(84, 84, 84, 0.65);
   --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
 
@@ -26,8 +26,9 @@
   --color-theme-icon: #a9b5c2;
   --color-theme-icon-hover: #8b939e;
 
-  --theme-color-1: rgb(216, 159, 121);
-  --theme-color-2: rgb(206, 120, 62);
+  --color-primary-1: rgb(216, 159, 121);
+  --color-primary-2: rgb(206, 120, 62);
+  --color-secondary-1: rgb(50, 50, 50);
 }
 
 :root {

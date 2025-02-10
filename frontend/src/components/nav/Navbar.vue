@@ -79,9 +79,8 @@ checkScreenWidth();
 
 
 <style lang="scss">
-
 .navbar-wrapper {
-    background-color: rgb(50, 50, 50);
+    background-color: var(--color-secondary-1);
     display:flex;
     justify-content: center; 
 }
@@ -138,10 +137,10 @@ nav
             align-content: center;
         }
         a:hover{
-            color: var(--theme-color-1);
+            color: var(--color-primary-2);
         }
         a.router-link-active{
-            border-bottom: 3px solid var(--theme-color-1);;
+            border-bottom: 3px solid var(--color-primary-2);;
         }
     }
 }
@@ -160,8 +159,8 @@ nav
         position: absolute;
         inset: 0;
         inset-block-start: var(--nav-height);
-        background-color: white;
-        border-left: 1px solid rgb(185, 185, 185);
+        background-color: var(--color-background);
+        border-left: 1px solid var(--color-border);
     }
     .menu-enter-active{
         animation: slide-in .5s;
@@ -201,13 +200,13 @@ nav
                 justify-content: center;
                 block-size: 50px;
                 border-radius: 100px;
-                border: 1px solid var(--theme-color-2);
-                color: var(--theme-color-2);
+                border: 1px solid var(--color-primary-2);
+                color: var(--color-primary-2);
             }
         }
         .nav-item:first-child a {
-            background-color: var(--theme-color-2);
-            color: white;
+            background-color: var(--color-primary-2);
+            color: #ffffffff;
         }
     }
 

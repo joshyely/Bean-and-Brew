@@ -1,0 +1,31 @@
+@import './theme.css';
+@import './animations.css';
+
+:root {
+    --section-gap: 160px;
+    --wrapper-width: 1300px;
+}
+  
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    font-weight: normal;
+}
+#app {
+    min-height: 100vh;
+}
+
+main{
+    min-height: 100vh;
+    .wrapper{
+        width: var(--wrapper-width);
+        margin: auto;
+        height: 100%;
+        section {
+            margin: auto;
+            padding: 3%;
+        }
+    }
+}
