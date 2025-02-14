@@ -34,8 +34,8 @@ def register_user(db:SessionDep, user: UserRegister):
         status_code=status.HTTP_201_CREATED, content='User Registered'
     )
 
-@router.post('/token')
-def login_token(db:SessionDep, form_data: OAuth2FormDep):
+@router.post('/login')
+def login_user(db:SessionDep, form_data: OAuth2FormDep):
     print('logging in user..')
     user_db = authenticate_user(db, form_data)
     if not user_db:

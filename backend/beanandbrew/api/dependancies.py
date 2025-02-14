@@ -10,7 +10,7 @@ from ..schemas.token import Payload
 from ..config import settings
 from ..database import db
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl='/api/auth/token')
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl='/api/auth/login')
 
 def verify_token(token:Annotated[str, Depends(oauth2_scheme)]) -> Payload:
     """_Uses JWT to verfify the token's signature using the a saved jwt key_
