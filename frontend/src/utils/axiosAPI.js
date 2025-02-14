@@ -1,19 +1,12 @@
 import axios from 'axios'
 import { getToken, deleteToken } from './auth';
 
-const api = axios.create({
+export const api = axios.create({
     baseURL: '/api',
     headers: {
       'Content-Type': 'application/json',
     },
 });
-
-// Test communication with the backend restAPI
-export const apiTestCall = () => {
-  api.get('/foobar').then(response => {
-    console.log(response);
-  });
-};
 
 api.interceptors.request.use((config) => {
   const token = getToken();
@@ -33,4 +26,10 @@ api.interceptors.response.use(
   }
 )
 
+// Test communication with the backend restAPI
+export const apiTestCall = () => {
+  api.get('/foobar').then(response => {
+    console.log(response);
+  });
+};
 

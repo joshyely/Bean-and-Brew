@@ -5,7 +5,7 @@ import FooterComp from './components/Footer.vue'
 import { apiTestCall } from './utils/axiosAPI.js'
 import { saveToken, getToken, deleteToken } from './utils/auth.js'
 
-const count = ref(0);
+
 </script>
 
 <template>
@@ -19,8 +19,3 @@ const count = ref(0);
   <FooterComp />
 </footer>
 </template>
-
-
-<style>
-
-</style>

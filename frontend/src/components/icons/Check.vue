@@ -1,0 +1,12 @@
+<template>
+    <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#5f6368"><path d="M389-267 195-460l51-52 143 143 325-324 51 51-376 375Z"/></svg>
+</template>
+
+<style scoped lang="scss">
+    svg{
+        --size: 25px;
+        fill: green;
+        width: var(--size);
+        height: var(--size);
+    }
+</style>

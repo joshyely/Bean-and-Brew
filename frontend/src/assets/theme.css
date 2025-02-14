@@ -13,21 +13,25 @@
 
   --vt-c-indigo: #2c3e50;
 
-  --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
+  --vt-c-divider-light-1: rgba(60, 60, 60, 0.6);
   --vt-c-divider-light-2: rgba(60, 60, 60, 0.23);
   --vt-c-divider-dark-1: rgba(84, 84, 84, 0.65);
   --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
 
   --vt-c-text-light-1: rgb(30, 30, 30);
-  --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
+  --vt-c-text-light-2: rgba(60, 60, 60, 0.8);
   --vt-c-text-dark-1: var(--vt-c-white);
   --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
   
+
+  
+
   --color-theme-icon: #a9b5c2;
   --color-theme-icon-hover: #8b939e;
 
   --color-primary-1: rgb(216, 159, 121);
   --color-primary-2: rgb(206, 120, 62);
+  --color-primary-3: rgb(187, 103, 47);
   --color-secondary-1: rgb(50, 50, 50);
 }
 
@@ -43,20 +47,28 @@
 
   --color-heading: var(--vt-c-text-light-1);
   --color-text: var(--vt-c-text-light-1);
+  --color-text-2: var(--vt-c-text-light-2);
+
+  --color-icon: var(--vt-c-text-light-2);
+  --color-icon-hover: var(--vt-c-text-light-1);
 }
   
 [data-theme="dark"] {
---color-background: var(--vt-c-black);
---color-background-soft: var(--vt-c-black-soft);
---color-background-mute: var(--vt-c-black-mute);
---color-background-25: var(--vt-c-black-25);
---color-background-50: var(--vt-c-black-50);
+  --color-background: var(--vt-c-black);
+  --color-background-soft: var(--vt-c-black-soft);
+  --color-background-mute: var(--vt-c-black-mute);
+  --color-background-25: var(--vt-c-black-25);
+  --color-background-50: var(--vt-c-black-50);
 
---color-border: var(--vt-c-divider-dark-2);
---color-border-hover: var(--vt-c-divider-dark-1);
+  --color-border: var(--vt-c-divider-dark-2);
+  --color-border-hover: var(--vt-c-divider-dark-1);
 
---color-heading: var(--vt-c-text-dark-1);
---color-text: var(--vt-c-text-dark-2);
+  --color-heading: var(--vt-c-text-dark-1);
+  --color-text: var(--vt-c-text-dark-1);
+  --color-text-2: var(--vt-c-text-dark-2);
+
+  --color-icon: var(--vt-c-text-dark-2);
+  --color-icon-hover: var(--vt-c-text-dark-1);
 }
 
 body {
@@ -84,4 +96,7 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+a {
+  color: var(--color-primary-2);
 }

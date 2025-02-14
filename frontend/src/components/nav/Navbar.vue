@@ -82,7 +82,8 @@ checkScreenWidth();
 .navbar-wrapper {
     background-color: var(--color-secondary-1);
     display:flex;
-    justify-content: center; 
+    justify-content: center;
+    box-shadow: .2px 0 4px rgb(0, 0, 0, .5);
 }
 
 .nav-container,
@@ -147,12 +148,12 @@ nav
 #mobile{
     padding: 0 1%;
     --nav-height: 70px;
+    // position: relative;
     .logo{
         --logo-size: var(--nav-height);
     }
     .nav-container{
         justify-content: space-between;
-        position: relative;
     }
     #menu {
         padding: 2% 0;
@@ -161,6 +162,7 @@ nav
         inset-block-start: var(--nav-height);
         background-color: var(--color-background);
         border-left: 1px solid var(--color-border);
+        z-index: 2147483647;
     }
     .menu-enter-active{
         animation: slide-in .5s;
