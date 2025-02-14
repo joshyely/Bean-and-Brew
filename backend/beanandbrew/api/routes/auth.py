@@ -1,9 +1,13 @@
 from fastapi import APIRouter, status
 from fastapi.exceptions import HTTPException
 from fastapi.responses import JSONResponse
+from fastapi.encoders import jsonable_encoder
 from typing import Annotated
 from ..dependancies import SessionDep, OAuth2FormDep, TokenDep
 from ...models import User
+from ...schemas.responses import (
+    Detail,
+)
 from ...schemas.user import (
     UserLogin,
     UserRegister
@@ -24,17 +28,49 @@ router = APIRouter(
     tags=['auth']
 )
 
-@router.post('/register')
+@router.post(
+    '/register',
+    responses={
+        status.HTTP_201_CREATED: {
+            'description': 'Account Successfully Created',
+            'model': Detail,
+        },
+        status.HTTP_226_IM_USED: {
+            'description': 'User Exists',
+            'content': {
+                'application/json': {
+                    'example': {'detail': 'User exists'}
+                }
+            },
+        },
+    },
+)
 def register_user(db:SessionDep, user: UserRegister):
     user_db = get_user_by_email(db, user.email)
     if user_db:
-        raise HTTPException(status_code=status.HTTP_226_IM_USED, detail='User exists.')
+        raise HTTPException(status_code=status.HTTP_226_IM_USED, detail='User exists')
     create_user(db, user)
     return JSONResponse(
-        status_code=status.HTTP_201_CREATED, content='User Registered'
+        status_code=status.HTTP_201_CREATED, content={'detail': 'User Registered'}
     )
 
-@router.post('/login')
+@router.post(
+    '/login',
+    responses={
+        status.HTTP_200_OK: {
+            'description': 'Successful Login',
+            'model': Token,
+        },
+        status.HTTP_401_UNAUTHORIZED: {
+            'description': 'Invalid Credentials',
+            'content': {
+                'application/json': {
+                    'example': {'detail': 'Invalid Credentials'}
+                }
+            },
+        },
+    },
+)
 def login_user(db:SessionDep, form_data: OAuth2FormDep):
     print('logging in user..')
     user_db = authenticate_user(db, form_data)
@@ -42,6 +78,7 @@ def login_user(db:SessionDep, form_data: OAuth2FormDep):
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail='Invalid Credentials')
     
     payload = Payload(sub=str(user_db.id), exp=create_expiry(minutes=30))
+    
     return Token(
         access_token=create_token(payload),
         token_type='bearer'
