@@ -44,6 +44,7 @@ router = APIRouter(
             },
         },
     },
+    status_code=status.HTTP_201_CREATED,
 )
 def register_user(db:SessionDep, user: UserRegister):
     user_db = get_user_by_email(db, user.email)
