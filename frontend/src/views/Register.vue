@@ -30,14 +30,15 @@ const submit = () => {
     newPasswordRef.value.validate();
     dobRef.value.validate();
 
+    console.log(fNameRef.value.isValid);
     if (
-        !fNameRef.value.isValid &&
-        !lNameRef.value.isValid &&
-        !emailRef.value.isValid &&
-        !newPasswordRef.value.isValid &&
+        !fNameRef.value.isValid ||
+        !lNameRef.value.isValid ||
+        !emailRef.value.isValid ||
+        !newPasswordRef.value.isValid ||
         !dobRef.value.isValid
     ) {
-        return false;
+        return false
     }
 
     api.post('/auth/register', {
