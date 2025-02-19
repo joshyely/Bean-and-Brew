@@ -9,12 +9,12 @@ import Profile from './views/Profile.vue'
 
 
 const routes = [
-    { path: '/', component: Home },
-    { path: '/about', component: About },
-    { path: '/contact', component: Contact },
-    { path: '/login', component: Login },
-    { path: '/register', component: Register },
-    { path: '/profile', component: Profile },
+    { path: '/', component: Home, name: 'Home' },
+    { path: '/about', component: About, name: 'About' },
+    { path: '/contact', component: Contact, name: 'Contact' },
+    { path: '/login', component: Login, name: 'Login' },
+    { path: '/register', component: Register, name: 'Register' },
+    { path: '/profile', component: Profile, name: 'Profile' },
 ]
 
 const router = createRouter({

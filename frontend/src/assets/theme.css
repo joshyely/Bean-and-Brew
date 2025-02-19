@@ -20,12 +20,11 @@
 
   --vt-c-text-light-1: rgb(30, 30, 30);
   --vt-c-text-light-2: rgba(60, 60, 60, 0.8);
+  --vt-c-text-light-3: rgba(60, 60, 60, 0.89);
   --vt-c-text-dark-1: var(--vt-c-white);
   --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
+  --vt-c-text-dark-3: rgba(235, 235, 235, 0.8);
   
-
-  
-
   --color-theme-icon: #a9b5c2;
   --color-theme-icon-hover: #8b939e;
 
@@ -48,6 +47,7 @@
   --color-heading: var(--vt-c-text-light-1);
   --color-text: var(--vt-c-text-light-1);
   --color-text-2: var(--vt-c-text-light-2);
+  --color-text-3: var(--vt-c-text-light-3);
 
   --color-icon: var(--vt-c-text-light-2);
   --color-icon-hover: var(--vt-c-text-light-1);
@@ -66,6 +66,7 @@
   --color-heading: var(--vt-c-text-dark-1);
   --color-text: var(--vt-c-text-dark-1);
   --color-text-2: var(--vt-c-text-dark-2);
+  --color-text-3: var(--vt-c-text-dark-3);
 
   --color-icon: var(--vt-c-text-dark-2);
   --color-icon-hover: var(--vt-c-text-dark-1);

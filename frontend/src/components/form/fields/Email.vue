@@ -1,68 +1,22 @@
 <script setup>
 import { computed, provide, ReactiveEffect, ref } from 'vue';
-import Field, {  } from './Field.vue';
+import Input from '../Input.vue';
 
-const props = defineProps({
-    required: Boolean = false,
-});
+const regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
-const vmodel = defineModel();
+const errors = {
+    pattern: 'Invalid Email.',
+    max: 'Email can not be over 50 characters long.'
+}
 
-const isValid = ref(false);
-const isValidated = ref(false);
-const errorMessage = ref('');
-
-const regexEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-
-
-
-const validate = () => {
-    let isEmpty = vmodel.value.trim() == '';
-    if (!props.required && isEmpty){
-        isValid.value = true;
-        errorMessage.value = '';
-        return
-    }
-
-    isValidated.value = true;
-    if(isEmpty)
-    {
-        isValid.value = false;
-        errorMessage.value = 'Field cannot be blank.';
-    }
-    else if(!regexEmail.test(vmodel.value))
-    {
-        isValid.value = false;
-        errorMessage.value = 'Invalid email.';
-    }
-    else
-    {
-        isValid.value = true;
-        errorMessage.value = '';
-    }
-    
-};
-
-defineExpose({
-    isValid,
-    validate,
-});
 </script>
 
 <template>
-<Field
-  class="email-field"
-  :valid="isValid"
-  :err-msg="errorMessage"
-  :validated="isValidated"
->
-    <input
-        type="email"
-        placeholder="Email"
-        v-model="vmodel"
-        @focusout="validate"
-    >
-
-</Field>
-
+<Input
+    type="email"
+    placeholder="Email"
+    :pattern="regex"
+    :max="50"
+    :errors="errors"
+></Input>
 </template>

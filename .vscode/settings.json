@@ -1,9 +1,6 @@
 {
-    "files.associations": {
-        "*.html": "html",
-        "*.jinja": "jinja-html"
-    },
     "emmet.includeLanguages": {
-        "jinja-html": "html"
+        "scss": "css",
     },
+    "typescript.tsdk": "node_modules/typescript/lib",
 }

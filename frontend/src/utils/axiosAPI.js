@@ -19,8 +19,10 @@ api.interceptors.request.use((config) => {
 api.interceptors.response.use(
   (response) => response,
   async (error) => {
-    if (error.response?.status === 401) {
-      deleteToken();
+    switch(error.response?.status){
+      case 401:
+        deleteToken();
+        break;
     }
     return Promise.reject(error)
   }

@@ -1,39 +1,32 @@
 <script setup>
-
 import Logo from '../Logo.vue';
 import MenuIcon from '../icons/Menu.vue'
 import CloseIcon from '../icons/Close.vue'
 import MainNav from './lists/Main.vue'
 import AccountNav from './lists/Account.vue'
+import { mobile } from '@/utils/responsive.js';
 
-import { ref, watch, onMounted } from 'vue';
-import { useRoute } from 'vue-router'
+
+import { ref, watch } from 'vue';
+import { useRoute } from 'vue-router';
+
 
 const route = useRoute();
 const currentPage = ref();
 
-const mobile = ref(true);
 const menuOpen = ref(false);
 
-
-
-const checkScreenWidth = () => {
-    if(window.innerWidth < 1024)
-    {
-        mobile.value = true;
+watch(
+    () => mobile,
+    (mobile) => {
+        console.log('running watcher')
+        if(!mobile){
+            menuOpen.value = false;
+        }
     }
-    else
-    {
-        mobile.value = false;
-        // Set menuOpen to false so it closes automatically when switching to desktop.
-        menuOpen.value = false;
-    }
-}
+);
 
 const menuToggle = () => menuOpen.value = menuOpen.value==true ? false : true;
-
-// Events
-window.addEventListener('resize', checkScreenWidth);
 
 watch(
   () => route.fullPath,
@@ -42,9 +35,6 @@ watch(
     currentPage.value = fullPath;
   }
 );
-
-
-checkScreenWidth();
 </script>
 
 <template>
@@ -52,14 +42,14 @@ checkScreenWidth();
 <div id="mobile" class="navbar-wrapper" v-if="mobile">
     <div class="nav-container">
         <RouterLink class="logo-link" to="/"><Logo /></RouterLink>
-        <transition>
-            <MenuIcon @click="menuToggle" v-if="!menuOpen" />
-            <CloseIcon @click="menuToggle" v-else />
-        </transition>
+        
+        <MenuIcon @click="menuToggle" v-if="!menuOpen"/>
+        <CloseIcon @click="menuToggle" v-else/>
+        
         
     </div>
     <transition name="menu">
-        <div id="menu" v-if="menuOpen">
+        <div id="menu" v-show="menuOpen">
             <AccountNav />
             <MainNav />
         </div>
@@ -102,8 +92,9 @@ nav
     display:flex;
 }
 .nav-item a{
+    font-size: 1.23em;
     text-decoration: none;
-    font-weight:600;
+    font-weight:500;
     display: block;
 }
 
