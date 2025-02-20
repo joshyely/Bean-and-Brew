@@ -23,21 +23,5 @@ import { mobile } from '@/utils/responsive.js'
 </template>
 
 <style lang="scss">
-.main-wrapper{
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
-}
-main{
-  width:100%;
-  section {
-    margin: 0 auto;
-    padding: 3%;
-    min-height: fit-content;
-    h1{
-      font-size: 2.1em;
-    }
-  }
-}
+
 </style>

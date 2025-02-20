@@ -1,6 +1,6 @@
-@import './theme.css';
-@import './animations.css';
-@import './fonts.scss';
+@use './theme.css';
+@use './animations.css';
+@use './fonts.scss';
 
 :root {
     --section-gap: 160px;
@@ -27,24 +27,52 @@
 }
 
 .invalid {
-    border-color: rgb(200, 0, 0) !important;
-    box-shadow: 0px 0px 4px rgb(250, 150, 150);
+    border-color: var(--color-error) !important;
+    box-shadow: 0px 0px 4px var(--color-error-2);
 }
 .valid {
-    border-color: rgb(0, 162, 0) !important;
+    border-color: var(--color-success) !important;
 }
 
-
-
-section.account {
-    max-width: 600px;
-    min-height: 80vh;
-    padding: 3% 5%;
-    border: 1px solid var(--color-border);
-    border-radius: var(--border-radius);
-    box-shadow: .5px .8px 3px rgb(0, 0, 0, .5);     
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
 }
 
+.main-wrapper{
+    min-height: 100vh;
+}
+main{
+    width:100%;
+    min-height:100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section{
+    min-height: fit-content;
+    margin: 5% 0;
+    width: 100%;
+    padding: 40px 35px;
+    &.small {
+        max-width: 600px;
+        min-height: 80vh;
+        border: 1px solid var(--color-border);
+        border-radius: var(--border-radius);
+        box-shadow: .5px .8px 3px rgb(0, 0, 0, .5);     
+    }
+    &.medium {
+        max-width: 1024px;
+        min-height: 80vh;
+        padding: 3% 5%;
+        border: 1px solid var(--color-border);
+        border-radius: var(--border-radius);
+        box-shadow: .5px .8px 3px rgb(0, 0, 0, .5);     
+    }
+}
 .margin-top{
     margin-top: 5vh !important;
 }

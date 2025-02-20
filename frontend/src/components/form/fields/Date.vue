@@ -23,6 +23,7 @@ const errors = {
 <template>
 <Input
     type="date"
+    field-class="date-field"
     :class="['date-input']"
     :errors="errors"
     :min=props.min
@@ -36,6 +37,12 @@ const errors = {
     </template>
 </Input>
 </template>
+
+<style>
+.field.date-field .input-container .input-inner{
+    right: 2.5em;
+}
+</style>
 
 <style scoped lang="scss">
 .date-helper {

@@ -1,3 +1,5 @@
+import { ref } from "vue";
+
 const tokenVarName = 'token';
 
 export const saveToken = (token, expiry) => {
@@ -19,3 +21,17 @@ export const getToken = () => {
     console.log('TOKEN COOKIE NOT FOUND.')
     return null;
 };
+
+export const login = (token, expiry) => {
+    saveToken(token, expiry);
+    loggedIn.value = true;
+}
+
+export const logout = () => {
+    deleteToken();
+    loggedIn.value = false;
+}
+
+export const checkLoggedIn = () => !!getToken();
+
+export const loggedIn = ref(checkLoggedIn());

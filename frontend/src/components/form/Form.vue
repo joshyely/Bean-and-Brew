@@ -38,8 +38,6 @@ const doSubmit = () => {
         }
     } 
 };
-
-
 </script>
 
 <template>
@@ -75,9 +73,8 @@ const doSubmit = () => {
     }
 }
 
-
 .form-default{
-    margin-bottom: .5vh;
+    margin-bottom: 3vh;
 }
 .form-error{
     margin-bottom: 1vh;

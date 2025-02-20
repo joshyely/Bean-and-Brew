@@ -1,8 +1,9 @@
 <script setup>
-import { inject, onMounted, ref, computed } from 'vue';
+import { inject, onMounted, ref, computed, watch } from 'vue';
 import ErrorMessage from './ErrorMessage.vue';
 import UniqueID from '@/utils/uniqueID.js';
 import { validPattern, notEmpty, sameAs, differentTo } from '@/utils/validation';
+import ErrorIcon from '../icons/Error.vue';
 
 const inputID = ref(
   UniqueID()
@@ -21,8 +22,8 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  min: Number,
-  max: Number,
+  min: [Number, String],
+  max: [Number, String],
   pattern: {
     type: RegExp,
     default: null,
@@ -48,10 +49,34 @@ const props = defineProps({
   validateOnInput: {
     type: Boolean, 
     default: false,
+  },
+  err: {
+    type: [Object, Boolean, String],
+    default: () => { 
+      return { msg: '', invalid: false }
+    }
+  },
+  fieldClass: String,
+});
+
+
+
+const errMsg = ref(null);
+const invalid = computed(() => {
+  if(!!errMsg.value){
+    return true
+  }
+
+  if(props.err.constructor == Object)
+  {
+    return !!props.err.msg || props.err.invalid
+  }
+  else {
+    return !!props.err || props.err
   }
 });
 
-const errMsg = ref(null);
+
 const vmodel = defineModel();
 
 const errors = {
@@ -98,7 +123,6 @@ const max = computed(() => {
 const validated = ref(false);
 
 const validate = () => {
-  console.log(`${min.value}\n${max.value}`);
   if (!props.doValidate) {
     return true
   }
@@ -130,7 +154,7 @@ const validate = () => {
   }
 
   validated.value = true;
-  return !!errMsg.value;
+  return errMsg.value=='';
 };
 
 const showHelper = ref(false);
@@ -140,17 +164,17 @@ validations.push(validate);
 </script>
 
 <template>
-<div class="field">
+<div :class="['field', props.fieldClass]">
   <div
     v-if="$slots.helper" 
     v-show="showHelper" 
-    :class="['helper', !!errMsg ? 'invalid' : validated&!!String(vmodel) && 'valid']"
+    :class="['helper', invalid ? 'invalid' : validated&!!String(vmodel) && 'valid']"
   >
       <slot name="helper"></slot>
   </div>
   <div
     :class="['input-container',
-      !!errMsg ? 'invalid' : validated&!!String(vmodel) && 'valid',
+      invalid ? 'invalid' : validated&!!String(vmodel) && 'valid',
       $slots.helper ? 'has-helper' : ''
     ]"
     @input="validate()"
@@ -167,12 +191,17 @@ validations.push(validate);
       :min="min"
       :max="max"
     >
-    <div class="input-components">
-        <slot></slot>
+    <div class="input-inner">
+      <div v-show="invalid" class="input-err-icon">
+        <ErrorIcon/>
+      </div>
+      <div class="input-components">
+          <slot></slot>
+      </div>
     </div>
   </div>
   
-  <ErrorMessage v-show="!!errMsg">{{ errMsg }}</ErrorMessage>
+  <ErrorMessage v-show="!!errMsg || !!props.err.msg">{{ errMsg || props.err.msg }}</ErrorMessage>
 </div>
 </template>
 
@@ -226,11 +255,13 @@ validations.push(validate);
         display: none;
       }
     }
-    .input-components{
+    .input-inner{
       position: absolute;
       width:fit-content;
       right:.6em;
       left:auto;
+      display:flex;
+      gap: 10px;
     }
   }
 }

@@ -1,39 +1,78 @@
 <script setup>
-import { ref } from 'vue'
-import ShowIcon from '../components/icons/Show.vue'
-import HideIcon from '../components/icons/Hide.vue'
+import { ref, reactive } from 'vue'
+import Form from '@/components/form/Form.vue';
+import Fieldset from '@/components/form/Fieldset.vue';
+import Email from '@/components/form/fields/Email.vue';
+import Password from '@/components/form/fields/Password.vue';
+import { apiFormUrlEncoded } from '../utils/axiosAPI';
+import { HttpStatusCode } from 'axios';
+import { login } from '@/utils/auth';
 
-const passwordShow = ref(false);
+
+const models = reactive({
+    email: '',
+    password: ''
+});
+const loginErrs = reactive({
+    formErrMsg: '',
+    credentialsInvalid: false,
+});
 
 const submit = () => {
-
+    console.log(models.email);
+    console.log(models.password);
+    apiFormUrlEncoded.post('/auth/login', 
+    {
+        username: models.email,
+        password: models.password,
+    })
+    .then(response => {
+        console.log('login success!');
+        login(response.data.access_token);
+    })
+    .catch(error => {
+        console.log('error!')
+        console.log(error)
+        switch(error.status)
+        {
+            case HttpStatusCode.Unauthorized:
+                loginErrs.formErrMsg = 'Email or Password was incorrect.'
+                loginErrs.credentialsInvalid = true
+                break;
+            default:
+                loginErrs.formErrMsg = error.message;
+        }
+    }); 
 }
-
-
 </script>
 
 
 <template>
-<div class="wrapper">
-<section class="account">
-    <h1>Login</h1>
-    <br>
-    <form @submit="">
-        <div class="field">
-            <input type="email" placeholder="Email" required>
-        </div>
-        <div class="field password">
-            <input :type="[!passwordShow ? 'password' : 'text' ]" placeholder="Password" required>
-            <span class="show-toggle-btn">
-                <ShowIcon @click="() => passwordShow = false" v-if="passwordShow"/>
-                <HideIcon @click="() => passwordShow = true" v-else/>
-            </span>
-        </div>
-        <input type="submit" value="Login">
-        <p>Don't have an account? <RouterLink to="/register">Register here</RouterLink></p>
-    </form>
+
+<section class="small">
+    <Form
+        heading="Login"
+        :err-msg="loginErrs.formErrMsg"
+        @submit="submit"
+    >
+        <template #default>
+            <Fieldset @input="loginErrs.credentialsInvalid = false">
+                <Email
+                    v-model="models.email"
+                    :err="loginErrs.credentialsInvalid"
+                ></Email>
+                <Password
+                    v-model="models.password"
+                    :err="loginErrs.credentialsInvalid"
+                ></Password>
+            </Fieldset>
+        </template>
+        <template #lower>
+            <p>Don't have an account? <RouterLink to="/register">Register here</RouterLink></p>
+        </template>
+    </Form>
 </section>
-</div>
+
 
 </template>
 

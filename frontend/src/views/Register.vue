@@ -1,6 +1,5 @@
 <script setup>
 import { ref, reactive } from 'vue';
-import { HttpStatusCode } from 'axios';
 import Form from '@/components/form/Form.vue';
 import Fieldset from '@/components/form/Fieldset.vue';
 import Alpha from '@/components/form/fields/Alpha.vue';
@@ -8,9 +7,10 @@ import Email from '@/components/form/fields/Email.vue';
 import Password from '@/components/form/fields/Password.vue';
 import NewPassword from '@/components/form/fields/NewPassword.vue';
 import Date from '@/components/form/fields/Date.vue';
-import { api } from '../utils/axiosAPI';
+import { apiJSON } from '../utils/axiosAPI';
+import { HttpStatusCode } from 'axios';
 
-const formErrMsg = ref('');
+
 
 // Field models
 const models = reactive({
@@ -19,13 +19,32 @@ const models = reactive({
     email: '',
     password: '',
     confirmPassword: '',
-    dob: '',
+    dob: null,
 });
+
+
+const registrationErrs = reactive({
+    formErrMsg: '',
+    email: { msg: '', invalid: false },
+    confirmPassword: { msg: '', invalid: false },
+});
+
+const checkPasswordsMatch = () => {
+    if (!models.password || !models.confirmPassword){
+        return true;
+    }
+    
+    if (models.password != models.confirmPassword) {
+        registrationErrs.confirmPassword.msg = 'Passwords do not match.';
+        return false;
+    }
+    registrationErrs.confirmPassword.msg = '';
+    return true;
+};
 
 const submit = () => {
     console.log('submitting..')
-    console.log(typeof(models.dob));
-    api.post('/auth/register', {
+    apiJSON.post('/auth/register', {
         email: models.email,
         password: models.password,
         first_name: models.fName,
@@ -33,12 +52,18 @@ const submit = () => {
         dob: models.dob,
         recieve_promotions: false,
     })
-    .catch(error => {
-        console.log(error);
-        formErrMsg.value = error.message;
-    })
     .then(response => {
         console.log('success!');
+    })
+    .catch(error => {
+        switch(error.status){
+            case HttpStatusCode.ImUsed:
+                registrationErrs.formErrMsg = 'User with that email already exists!';
+                registrationErrs.email.invalid = true;
+                break;
+            default:
+                registrationErrs.formErrMsg = error.message;
+        };
     });
 };
 
@@ -55,7 +80,7 @@ const submitInvalid = () => {
         @submit="submit" 
         @invalid-submit="submitInvalid" 
         id="register" 
-        :err-msg="formErrMsg"
+        :err-msg="registrationErrs.formErrMsg"
     >
         <template #default>
             <Fieldset heading="Personal Info">
@@ -81,14 +106,18 @@ const submitInvalid = () => {
             <Fieldset heading="Account Security">
                 <Email
                     v-model="models.email"
+                    :err="registrationErrs.email"
                     required
                 ></Email>
                 <NewPassword
                     v-model="models.password"
+                    @focusout="checkPasswordsMatch"
                 ></NewPassword>
                 <Password
                     placeholder="Confirm Password"
                     v-model="models.confirmPassword"
+                    :err="registrationErrs.confirmPassword"
+                    @focusout="checkPasswordsMatch"
                 ></Password>
             </Fieldset>
         </template>

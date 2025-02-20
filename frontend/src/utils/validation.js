@@ -1,6 +1,11 @@
 export const validPattern = (value, pattern) => pattern==null || pattern.test(value);
 
-export const notEmpty = (value) => value.trim() != '' && value != null;
+export const notEmpty = (value) => {
+    if (value == null) {
+        return true
+    }
+    return value.trim() != ''
+};
 
 export const sameAs = (value, compare) => {
     if(compare == null){

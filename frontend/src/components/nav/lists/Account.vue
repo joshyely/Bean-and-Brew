@@ -1,6 +1,6 @@
 <script setup>
-import { ref } from 'vue';
-const loggedIn = ref(false);
+import { loggedIn, logout } from '@/utils/auth';
+
 </script>
 
 <template>
@@ -17,7 +17,7 @@ const loggedIn = ref(false);
         <RouterLink to="/profile">Profile</RouterLink>
     </li>
     <li class="nav-item">
-        <RouterLink to="/logout">Logout</RouterLink>
+        <a @click="logout">Logout</a>
     </li>
 </ul>
 </template>
