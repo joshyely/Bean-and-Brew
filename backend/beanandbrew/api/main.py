@@ -8,10 +8,9 @@ from ..log import uvicorn_logger
 api_routes = APIRouter(prefix='/api')
 api_routes.include_router(auth.router)
 
-@api_routes.get('/foobar')
-def get_foobar(request: Request):
+@api_routes.get('/')
+def get_test(request: Request):
     """
-    Test route which returns a JSON Response of {'foo': 'bar'}
+    Test GET route for frontend which returns a JSON Response of {'foo': 'bar'}
     """
-    uvicorn_logger.debug(request.headers)
     return JSONResponse(content={'foo': 'bar'})

@@ -2,9 +2,14 @@
 import { ref, onMounted } from 'vue';
 import Navbar from './components/nav/Navbar.vue'
 import FooterComp from './components/Footer.vue'
-import { apiTestCall } from './utils/axiosAPI.js'
+import { apiTest } from './utils/axiosAPI.js'
 import { saveToken, getToken, deleteToken } from '@/utils/auth.js'
 import { mobile } from '@/utils/responsive.js'
+
+onMounted(() => {
+  apiTest();
+});
+
 </script>
 
 <template>

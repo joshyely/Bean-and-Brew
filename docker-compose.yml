@@ -1,0 +1,25 @@
+name: beanandbrew
+
+services:
+  backend:
+    image: backend
+    build:
+      context: ./backend
+    env_file:
+      - backend/.env
+    ports:
+      - 5000:8000
+    networks:
+      - default
+  frontend:
+    image: frontend
+    build:
+      context: ./frontend
+    ports:
+      - 80:8080
+    networks:
+      - default
+
+    
+
+  

@@ -30,5 +30,8 @@ RUN \
     echo 'starship preset pure-preset -o /home/vscode/.config/starship.toml'  >> /home/vscode/.bashrc && \
     echo 'eval "$(starship init bash)"' >> /home/vscode/.bashrc
 
+
+
+
 # default user of dev container
 USER vscode

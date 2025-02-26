@@ -17,17 +17,26 @@ from .log import uvicorn_logger
 
 app = FastAPI(name=settings.PROJECT_NAME)
 app.include_router(api_routes)
-app.mount('/', StaticFiles(directory='backend/beanandbrew/static', html=True), name='static')
+app.mount('/', StaticFiles(directory='beanandbrew/static', html=True), name='static')
 
-if settings.all_cors_origins:
-    uvicorn_logger.info('Adding CORS Middleware..')
-    app.add_middleware(
-        CORSMiddleware,
-        allow_origins=["http://localhost:3000"],
-        allow_credentials=True,
-        allow_methods=["*"],
-        allow_headers=["*"],
-    )
+
+origins = [
+    "http://localhost",
+    "https://localhost",
+    "http://localhost:80",
+    "https://localhost:80",
+    "http://localhost:5000",
+    "http://localhost:3000",
+    "http://localhost:3001",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get('/')
 def test_page():

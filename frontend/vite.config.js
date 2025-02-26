@@ -15,6 +15,14 @@ export default defineConfig({
       'vue': 'vue/dist/vue.esm-bundler',
     },
   },
+  dev: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:5000',
+        changeOrigin: true,
+      },
+    },
+  },
   server: {
     proxy: {
       '/api': {
@@ -26,5 +34,11 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: false,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:5000',
+        changeOrigin: true,
+      },
+    },
   },
 })

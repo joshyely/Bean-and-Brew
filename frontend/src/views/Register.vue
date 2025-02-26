@@ -8,7 +8,7 @@ import Password from '@/components/form/fields/Password.vue';
 import NewPassword from '@/components/form/fields/NewPassword.vue';
 import Date from '@/components/form/fields/Date.vue';
 import { apiJSON } from '../utils/axiosAPI';
-import { HttpStatusCode } from 'axios';
+import axios, { HttpStatusCode } from 'axios';
 
 
 
@@ -30,10 +30,10 @@ const registrationErrs = reactive({
 });
 
 const checkPasswordsMatch = () => {
-    if (!models.password || !models.confirmPassword){
+    if (!models.password || !models.confirmPassword) {
         return true;
     }
-    
+
     if (models.password != models.confirmPassword) {
         registrationErrs.confirmPassword.msg = 'Passwords do not match.';
         return false;
@@ -42,30 +42,14 @@ const checkPasswordsMatch = () => {
     return true;
 };
 
-const submit = () => {
-    console.log('submitting..')
-    apiJSON.post('/auth/register', {
-        email: models.email,
-        password: models.password,
-        first_name: models.fName,
-        last_name: models.lName,
-        dob: models.dob,
-        recieve_promotions: false,
-    })
-    .then(response => {
-        console.log('success!');
-    })
-    .catch(error => {
-        switch(error.status){
-            case HttpStatusCode.ImUsed:
-                registrationErrs.formErrMsg = 'User with that email already exists!';
-                registrationErrs.email.invalid = true;
-                break;
-            default:
-                registrationErrs.formErrMsg = error.message;
-        };
+const submit = async () => {
+    let response = await axios({
+        method: 'get',
+        baseURL: '/api',
+        url: '/foobar',
     });
-};
+    console.log(`response: ${response}`);
+}
 
 const submitInvalid = () => {
     console.log('invalid submittion');
@@ -74,56 +58,27 @@ const submitInvalid = () => {
 </script>
 
 <template>
-<section class="small">
-    <Form 
-        heading="Register" 
-        @submit="submit" 
-        @invalid-submit="submitInvalid" 
-        id="register" 
-        :err-msg="registrationErrs.formErrMsg"
-    >
-        <template #default>
-            <Fieldset heading="Personal Info">
-                <Alpha
-                    id="fName"
-                    placeholder="First Name"
-                    required
-                    v-model="models.fName"
-                ></Alpha>
-                <Alpha
-                    id="lName"
-                    placeholder="Last Name"
-                    required
-                    v-model="models.lName"
-                ></Alpha>
-                <Date
-                    label="Date of Birth (Optional):"
-                    v-model="models.dob"
-                    min="1-1-1900"
-                    max="12-12-2030"
-                ></Date>
-            </Fieldset>
-            <Fieldset heading="Account Security">
-                <Email
-                    v-model="models.email"
-                    :err="registrationErrs.email"
-                    required
-                ></Email>
-                <NewPassword
-                    v-model="models.password"
-                    @focusout="checkPasswordsMatch"
-                ></NewPassword>
-                <Password
-                    placeholder="Confirm Password"
-                    v-model="models.confirmPassword"
-                    :err="registrationErrs.confirmPassword"
-                    @focusout="checkPasswordsMatch"
-                ></Password>
-            </Fieldset>
-        </template>
-        <template #lower>
-            <p>Already have an account? <RouterLink to="/login">Login here</RouterLink></p>
-        </template>
-    </Form>
-</section>
+    <section class="form">
+        <Form heading="Register" @submit="submit" @invalid-submit="submitInvalid" id="register"
+            :err-msg="registrationErrs.formErrMsg">
+            <template #default>
+                <Fieldset heading="Personal Info">
+                    <Alpha id="fName" placeholder="First Name" required v-model="models.fName"></Alpha>
+                    <Alpha id="lName" placeholder="Last Name" required v-model="models.lName"></Alpha>
+                    <Date label="Date of Birth (Optional):" v-model="models.dob" min="1-1-1900" max="12-12-2030"></Date>
+                </Fieldset>
+                <Fieldset heading="Account Security">
+                    <Email v-model="models.email" :err="registrationErrs.email" required></Email>
+                    <NewPassword v-model="models.password" @focusout="checkPasswordsMatch"></NewPassword>
+                    <Password placeholder="Confirm Password" v-model="models.confirmPassword"
+                        :err="registrationErrs.confirmPassword" @focusout="checkPasswordsMatch"></Password>
+                </Fieldset>
+            </template>
+            <template #lower>
+                <p>
+                    Already have an account? <RouterLink to="/login">Login here</RouterLink>
+                </p>
+            </template>
+        </Form>
+    </section>
 </template>

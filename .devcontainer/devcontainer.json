@@ -1,5 +1,5 @@
 {
-    "name": "Docker In Docker",
+    "name": "Bean and Brew",
     "build": {
         "dockerfile": "./Dockerfile"
     },
@@ -22,7 +22,6 @@
     "extensions": [
         "ms-azuretools.vscode-docker",
         "redhat.vscode-yaml",
-        "github.copilot"
     ],
     "features": {
         "ghcr.io/devcontainers/features/github-cli": "latest",

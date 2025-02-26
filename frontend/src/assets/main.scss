@@ -9,6 +9,8 @@
     --border-radius-2: 5px;
     --border: 1px solid var(--color-border);
     --border-hover: 1.2px solid var(--color-border-hover);
+    --box-shadow: .5px .8px 3px rgb(0, 0, 0, .5);
+    --box-shadow-hover: .5px .8px 6px rgb(0, 0, 0, .65);
     @media(min-width: 1024px)
     {
         --wrapper-width: 80%;
@@ -57,22 +59,24 @@ section{
     margin: 5% 0;
     width: 100%;
     padding: 40px 35px;
-    &.small {
+    &.form {
         max-width: 600px;
         min-height: 80vh;
         border: 1px solid var(--color-border);
         border-radius: var(--border-radius);
-        box-shadow: .5px .8px 3px rgb(0, 0, 0, .5);     
+        box-shadow: var(--box-shadow);     
     }
-    &.medium {
-        max-width: 1024px;
+    &.full {
+        width: min(70rem, 100%);
         min-height: 80vh;
-        padding: 3% 5%;
-        border: 1px solid var(--color-border);
-        border-radius: var(--border-radius);
-        box-shadow: .5px .8px 3px rgb(0, 0, 0, .5);     
+        padding: 3% 5%; 
     }
 }
 .margin-top{
     margin-top: 5vh !important;
+}
+
+.flex {
+    display: flex;
+    gap: 30px;
 }

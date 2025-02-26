@@ -21,62 +21,46 @@ const loginErrs = reactive({
 const submit = () => {
     console.log(models.email);
     console.log(models.password);
-    apiFormUrlEncoded.post('/auth/login', 
-    {
-        username: models.email,
-        password: models.password,
-    })
-    .then(response => {
-        console.log('login success!');
-        login(response.data.access_token);
-    })
-    .catch(error => {
-        console.log('error!')
-        console.log(error)
-        switch(error.status)
+    apiFormUrlEncoded.post('/auth/login',
         {
-            case HttpStatusCode.Unauthorized:
-                loginErrs.formErrMsg = 'Email or Password was incorrect.'
-                loginErrs.credentialsInvalid = true
-                break;
-            default:
-                loginErrs.formErrMsg = error.message;
-        }
-    }); 
+            username: models.email,
+            password: models.password,
+        })
+        .then(response => {
+            console.log('login success!');
+            login(response.data.access_token);
+        })
+        .catch(error => {
+            console.log('error!')
+            console.log(error)
+            switch (error.status) {
+                case HttpStatusCode.Unauthorized:
+                    loginErrs.formErrMsg = 'Email or Password was incorrect.'
+                    loginErrs.credentialsInvalid = true
+                    break;
+                default:
+                    loginErrs.formErrMsg = error.message;
+            }
+        });
 }
 </script>
 
 
 <template>
-
-<section class="small">
-    <Form
-        heading="Login"
-        :err-msg="loginErrs.formErrMsg"
-        @submit="submit"
-    >
-        <template #default>
-            <Fieldset @input="loginErrs.credentialsInvalid = false">
-                <Email
-                    v-model="models.email"
-                    :err="loginErrs.credentialsInvalid"
-                ></Email>
-                <Password
-                    v-model="models.password"
-                    :err="loginErrs.credentialsInvalid"
-                ></Password>
-            </Fieldset>
-        </template>
-        <template #lower>
-            <p>Don't have an account? <RouterLink to="/register">Register here</RouterLink></p>
-        </template>
-    </Form>
-</section>
-
-
+    <section class="form">
+        <Form heading="Login" :err-msg="loginErrs.formErrMsg" @submit="submit">
+            <template #default>
+                <Fieldset @input="loginErrs.credentialsInvalid = false">
+                    <Email v-model="models.email" :err="loginErrs.credentialsInvalid"></Email>
+                    <Password v-model="models.password" :err="loginErrs.credentialsInvalid"></Password>
+                </Fieldset>
+            </template>
+            <template #lower>
+                <p>Don't have an account? <RouterLink to="/register">Register here</RouterLink>
+                </p>
+            </template>
+        </Form>
+    </section>
 </template>
 
-<style scoped lang="scss">
-
-
-</style>
+<style scoped lang="scss"></style>
