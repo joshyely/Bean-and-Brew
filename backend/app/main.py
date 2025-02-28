@@ -17,7 +17,7 @@ from .log import uvicorn_logger
 
 app = FastAPI(name=settings.PROJECT_NAME)
 app.include_router(api_routes)
-app.mount('/', StaticFiles(directory='beanandbrew/static', html=True), name='static')
+app.mount('/', StaticFiles(directory='app/static', html=True), name='static')
 
 
 origins = [
@@ -28,6 +28,7 @@ origins = [
     "http://localhost:5000",
     "http://localhost:3000",
     "http://localhost:3001",
+    "http://localhost:8080",
 ]
 
 app.add_middleware(
@@ -37,6 +38,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
 
 @app.get('/')
 def test_page():

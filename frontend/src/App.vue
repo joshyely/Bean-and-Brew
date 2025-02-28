@@ -6,6 +6,8 @@ import { apiTest } from './utils/axiosAPI.js'
 import { saveToken, getToken, deleteToken } from '@/utils/auth.js'
 import { mobile } from '@/utils/responsive.js'
 
+
+
 onMounted(() => {
   apiTest();
 });
