@@ -1,8 +1,9 @@
 import axios, { AxiosError } from 'axios'
 import { HttpStatusCode } from 'axios';
 import { getToken, deleteToken } from './auth';
+import { Exception } from 'sass';
 
-const backendBaseURL = 'api/'
+const backendBaseURL = '/api';
 
 export const apiJSON = axios.create({
   baseURL: backendBaseURL,
@@ -43,13 +44,17 @@ export const apiFormUrlEncoded = axios.create({
 
 
 export const apiTest = async () => {
-  let response = await fetch('http://localhost:80/api/foo');
-
-  if (response.status != HttpStatusCode.Accepted) {
+  let response;
+  try {
+    response = await axios({
+      baseURL: backendBaseURL,
+      url: '/foo',
+      method: 'get'
+    });
+  } catch (Exception) {
     console.log('API ERROR: ', response);
+    return true
   }
-  else {
-    console.log('API SUCCESS: ', response);
-  }
+  return false
 }
 
