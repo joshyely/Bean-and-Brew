@@ -20,16 +20,7 @@ app.include_router(api_routes)
 app.mount('/', StaticFiles(directory='app/static', html=True), name='static')
 
 
-origins = [
-    "http://localhost",
-    "https://localhost",
-    "http://localhost:80",
-    "https://localhost:80",
-    "http://localhost:5000",
-    "http://localhost:3000",
-    "http://localhost:3001",
-    "http://localhost:8080",
-]
+origins = ['http://localhost:8080/']
 
 app.add_middleware(
     CORSMiddleware,

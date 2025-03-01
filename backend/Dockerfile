@@ -9,6 +9,4 @@ ENV PYTHONPATH=/src
 
 COPY ./app /src/app
 
-EXPOSE 8000
-
-CMD ["fastapi", "run", "app/main.py", "--port", "8000"]
+CMD fastapi run app/main.py
