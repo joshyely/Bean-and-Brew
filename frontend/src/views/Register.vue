@@ -43,12 +43,21 @@ const checkPasswordsMatch = () => {
 };
 
 const submit = async () => {
-    let response = await axios({
-        method: 'get',
-        baseURL: '/api',
-        url: '/foobar',
+    apiJSON.post('/auth/register', {
+        email: models.email,
+        password: models.password,
+        first_name: models.fName,
+        last_name: models.lName,
+        dob: models.dob,
+        recieve_promotions: false,
+    })
+    .catch(error => {
+        console.log(error);
+        formErrMsg.value = error.message;
+    })
+    .then(response => {
+        console.log('success!');
     });
-    console.log(`response: ${response}`);
 }
 
 const submitInvalid = () => {

@@ -18,7 +18,7 @@ services:
       dockerfile: Dockerfile
     container_name: backend
     volumes:
-      - /workspaces/Bean-and-Brew/database:/src/database
+      - ./database:/src/database
     env_file:
       - .env
     environment:
