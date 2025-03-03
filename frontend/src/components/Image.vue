@@ -10,7 +10,7 @@ const props =  defineProps({
     },
 });
 
-const loadImage = () => new URL(`${props.src}`, import.meta.url);
+const loadImage = () => props.src;
 </script>
 
 <template>

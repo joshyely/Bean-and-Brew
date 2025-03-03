@@ -1,14 +1,12 @@
 FROM python:3.10
 
-ENV PYTHONUNBUFFERED=1
+WORKDIR /src/
+COPY ./requirements.txt /src/requirements.txt
 
-WORKDIR /beanandbrew/
-COPY . .
+RUN pip install --no-cache-dir --upgrade -r requirements.txt
 
-RUN pip install -r requirements.txt
+ENV PYTHONPATH=/src
 
-ENV PYTHONPATH=/beanandbrew
+COPY ./app /src/app
 
-EXPOSE 8000
-EXPOSE 5000
-CMD ["fastapi", "run", "--workers", "4", "--port", "8000" "beanandbrew/main.py"]
+CMD fastapi run app/main.py

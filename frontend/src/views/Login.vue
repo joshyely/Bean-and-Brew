@@ -19,8 +19,6 @@ const loginErrs = reactive({
 });
 
 const submit = () => {
-    console.log(models.email);
-    console.log(models.password);
     apiFormUrlEncoded.post('/auth/login',
         {
             username: models.email,

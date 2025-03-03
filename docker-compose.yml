@@ -1,25 +1,43 @@
-name: beanandbrew
-
 services:
+  reverse-proxy:
+    image: nginx:latest
+    container_name: reverse-proxy
+    volumes:
+      - ./reverse_proxy/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - frontend
+      - backend
+    ports:
+      - 80:80
+    networks:
+      main:
+
   backend:
-    image: backend
     build:
       context: ./backend
+      dockerfile: Dockerfile
+    container_name: backend
+    volumes:
+      - ./database:/src/database
     env_file:
-      - backend/.env
-    ports:
-      - 5000:8000
-    networks:
-      - default
+      - .env
+    environment:
+      - JWT_KEY=$JWT_KEY
+      - JWT_ALGORITHM=$JWT_ALGORITHM
+      - JWT_EXPIRY_MINUTES=$JWT_EXPIRY_MINUTES
+      - DB_URL=$DB_URL
+      - ORIGINS=$ORIGINS
+    networks: 
+      main:
+
   frontend:
-    image: frontend
     build:
       context: ./frontend
-    ports:
-      - 80:8080
+      dockerfile: Dockerfile
+    container_name: frontend
     networks:
-      - default
-
-    
-
+      main:
   
+networks:
+  main:
+    driver: bridge

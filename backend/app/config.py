@@ -29,16 +29,8 @@ class Settings(BaseSettings):
 
     DB_URL:str
 
-    # FRONTEND_HOST: str = "https://localhost:3000"
-    # BACKEND_CORS_ORIGINS: Annotated[
-    #     list[AnyUrl] | str, BeforeValidator(parse_cors)
-    # ] = []
+    ORIGINS:list[str]
 
-    # @computed_field 
-    # @property
-    # def all_cors_origins(self) -> list[str]:
-    #     return [str(origin).rstrip("/") for origin in self.BACKEND_CORS_ORIGINS] + [
-    #         self.FRONTEND_HOST
-    #     ]
+    
 
 settings = Settings()

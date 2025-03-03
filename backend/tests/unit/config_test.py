@@ -2,7 +2,7 @@ import pytest
 import os
 from dotenv import load_dotenv
 
-from ...beanandbrew.config import settings
+from ...app.config import settings
 
 def test_settings():
     load_dotenv()
