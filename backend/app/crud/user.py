@@ -28,7 +28,7 @@ def create_user(db: Session, user: UserRegister) -> User:
     db.add(db_object)
     return db_object
 
-def get_user_by_id(db: Session, id:int):
+def get_user_by_id(db: Session, id:int) -> User|None:
     """
     Gets a user by their id.
 
@@ -39,7 +39,7 @@ def get_user_by_id(db: Session, id:int):
     Returns:
         User
     """
-    db.query(User).filter_by(id=id).first()
+    return db.query(User).filter_by(id=id).first()
 
 def get_user_by_email(db: Session, email:str) -> User|None:
     """
