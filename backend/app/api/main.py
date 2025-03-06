@@ -1,12 +1,14 @@
 from fastapi import APIRouter, Request
 from fastapi.responses import JSONResponse
 from .routes import(
-    auth
+    auth,
+    user
 )
 from ..log import uvicorn_logger
 
 api_routes = APIRouter()
 api_routes.include_router(auth.router)
+api_routes.include_router(user.router)
 
 @api_routes.get('/foo')
 def get_test(request: Request):

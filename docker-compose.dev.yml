@@ -1,0 +1,29 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    container_name: backend-dev
+    env_file:
+      - .env
+    volumes:
+      - ./database:/src/database
+    ports:
+      - 8000:8000
+    networks:
+      dev:
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    container_name: frontend-dev
+    ports:
+      - 8080:80
+    networks:
+      dev:
+
+networks:
+  dev:
+    driver: bridge
+  

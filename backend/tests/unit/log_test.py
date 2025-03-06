@@ -1,5 +1,5 @@
 import pytest, logging
-from ...app.log import get_logger
+from app.log import get_logger
 
 
 

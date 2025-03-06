@@ -1,0 +1,32 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.test
+    container_name: backend-test
+    environment:
+      - PROJECT_NAME=BeanAndBrew_testing
+      - JWT_KEY=10AB594DDD984C13811A0BF063C140C9
+      - JWT_ALGORITHM=HS256
+      - JWT_EXPIRY_MINUTES=30
+      - DB_URL=sqlite:///test.db
+      - ORIGINS=["http://localhost:80"]
+    ports:
+      - 8000:8000
+    networks:
+      dev:
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    container_name: frontend-test
+    ports:
+      - 8080:80
+    networks:
+      dev:
+
+networks:
+  dev:
+    driver: bridge
+  
