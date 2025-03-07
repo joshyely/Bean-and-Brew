@@ -5,4 +5,5 @@ sqlalchemy
 pydantic-settings
 pytest
 pytest-csv
+pytest-order
 pdoc3
