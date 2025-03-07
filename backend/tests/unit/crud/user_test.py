@@ -9,9 +9,6 @@ from app.database import db
 from sqlalchemy.exc import IntegrityError
 
 
-
-
-@pytest.mark.first
 def test_create_user(temp_db):
     result = user.create_user(
         temp_db, 
@@ -27,7 +24,6 @@ def test_create_user(temp_db):
     assert type(result) == User
     assert result.email == 'johndoe@example.com'
 
-@pytest.mark.second
 def test_create_user_exists(temp_db):
     with pytest.raises(Exception):
         user.create_user(

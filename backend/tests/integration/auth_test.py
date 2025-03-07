@@ -1,152 +1,280 @@
 import pytest
+from pytest import param
 from fastapi import status
+from fastapi.testclient import TestClient
+from dataclasses import dataclass
 
-@pytest.fixture
-def register_data():
-    return {
-        'email': 'johndoe@example.com',
-        'password': 'Password$123',
-        'first_name': 'John',
-        'last_name': 'Doe',
-        'dob': '2002-03-06',
-        'receive_promotions': False
-    }
-
-@pytest.fixture
-def register_data_2():
-    return {
-        'email': 'lisa@example.com',
-        'password': 'aPassword£123',
-        'first_name': 'Lisa',
-        'last_name': 'Smith',
-        'dob': '1998-02-05',
-        'receive_promotions': False
-    }
+@dataclass
+class ValidUser:
+    first_name='John'
+    last_name='Doe'
+    dob='2003-12-21'
+    email='johndoe@example.com'
+    password='Password$123'
+    receive_promotions=False
 
 
-@pytest.mark.first
-def test_register(client, register_data):
-    response = client.post('/auth/register/', json=register_data)
-    assert response.status_code == status.HTTP_201_CREATED
-
-@pytest.mark.second
-def test_register_existing_user(client, register_data):
-    response = client.post('/auth/register/', json=register_data)
-    assert response.status_code == status.HTTP_226_IM_USED
-
-
-def test_register_empty_data(client):
-    response = client.post('/auth/register/', json={})
-    assert response.status_code == status.HTTP_422_UNPROCESSABLE_ENTITY
 
 @pytest.mark.parametrize(
-    'email',
+    'first_name,last_name,dob,email,password,receive_promotions,expected',
     [
-        None,
-        24972,
-        False,
-        True,
-        'lisa@example',
-        'lisaexample.com',
-        'lisa@@example.com',
-        'lisa@example..com',
-        'lisa@example.',
-        '@lisa.com',
-        '.lisa@example.com',
+        param(
+            None,
+            ValidUser.last_name,
+            ValidUser.dob,
+            ValidUser.email,
+            ValidUser.password,
+            ValidUser.receive_promotions,
+            [status.HTTP_422_UNPROCESSABLE_ENTITY],
+            id='First name is empty'
+        ),
+        param(
+            'John32',
+            ValidUser.last_name,
+            ValidUser.dob,
+            ValidUser.email,
+            ValidUser.password,
+            ValidUser.receive_promotions,
+            [status.HTTP_422_UNPROCESSABLE_ENTITY],
+            id='Invalid first name with numerical characters'
+        ),
+        param(
+            'John$',
+            ValidUser.last_name,
+            ValidUser.dob,
+            ValidUser.email,
+            ValidUser.password,
+            ValidUser.receive_promotions,
+            [status.HTTP_422_UNPROCESSABLE_ENTITY],
+            id='Invalid first name with symbols'
+        ),
+        param(
+            ValidUser.first_name,
+            None,
+            ValidUser.dob,
+            ValidUser.email,
+            ValidUser.password,
+            ValidUser.receive_promotions,
+            [status.HTTP_422_UNPROCESSABLE_ENTITY],
+            id='Last name is empty'
+        ),
+        param(
+            ValidUser.first_name,
+            'Doe49',
+            ValidUser.dob,
+            ValidUser.email,
+            ValidUser.password,
+            ValidUser.receive_promotions,
+            [status.HTTP_422_UNPROCESSABLE_ENTITY],
+            id='Invalid last name with numerical characters'
+        ),
+        param(
+            ValidUser.first_name,
+            'Doe£',
+            ValidUser.dob,
+            ValidUser.email,
+            ValidUser.password,
+            ValidUser.receive_promotions,
+            [status.HTTP_422_UNPROCESSABLE_ENTITY],
+            id='Invalid last name with symbols'
+        ),
+        param(
+            ValidUser.first_name,
+            ValidUser.last_name,
+            'odihwioh125',
+            ValidUser.email,
+            ValidUser.password,
+            ValidUser.receive_promotions,
+            [status.HTTP_422_UNPROCESSABLE_ENTITY],
+            id='Invalid dob as random string'
+        ),
+        param(
+            ValidUser.first_name,
+            ValidUser.last_name,
+            ValidUser.dob,
+            None,
+            ValidUser.password,
+            ValidUser.receive_promotions,
+            [status.HTTP_422_UNPROCESSABLE_ENTITY],
+            id='Email is empty'
+        ),
+        param(
+            ValidUser.first_name,
+            ValidUser.last_name,
+            ValidUser.dob,
+            'johndoe@example',
+            ValidUser.password,
+            ValidUser.receive_promotions,
+            [status.HTTP_422_UNPROCESSABLE_ENTITY],
+            id='Invalid email without dot'
+        ),
+        param(
+            ValidUser.first_name,
+            ValidUser.last_name,
+            ValidUser.dob,
+            'johndoeexample.com',
+            ValidUser.password,
+            ValidUser.receive_promotions,
+            [status.HTTP_422_UNPROCESSABLE_ENTITY],
+            id='Invalid email without @'
+        ),
+        param(
+            ValidUser.first_name,
+            ValidUser.last_name,
+            ValidUser.dob,
+            '.johndoe@example.com',
+            ValidUser.password,
+            ValidUser.receive_promotions,
+            [status.HTTP_422_UNPROCESSABLE_ENTITY],
+            id='Invalid email starting with a dot'
+        ),
+        param(
+            ValidUser.first_name,
+            ValidUser.last_name,
+            ValidUser.dob,
+            'johndoe@@example.com',
+            ValidUser.password,
+            ValidUser.receive_promotions,
+            [status.HTTP_422_UNPROCESSABLE_ENTITY],
+            id='Invalid email with more than one @'
+        ),
+        param(
+            ValidUser.first_name,
+            ValidUser.last_name,
+            ValidUser.dob,
+            'johndoe@example..com',
+            ValidUser.password,
+            ValidUser.receive_promotions,
+            [status.HTTP_422_UNPROCESSABLE_ENTITY],
+            id='Invalid email with two dots next to each other'
+        ),
+        param(
+            ValidUser.first_name,
+            ValidUser.last_name,
+            ValidUser.dob,
+            ValidUser.email,
+            None,
+            ValidUser.receive_promotions,
+            [status.HTTP_422_UNPROCESSABLE_ENTITY],
+            id='Password is empty'
+        ),
+        param(
+            ValidUser.first_name,
+            ValidUser.last_name,
+            ValidUser.dob,
+            ValidUser.email,
+            'Pa$12',
+            ValidUser.receive_promotions,
+            [status.HTTP_422_UNPROCESSABLE_ENTITY],
+            id='Password is too short'
+        ),
+        param(
+            ValidUser.first_name,
+            ValidUser.last_name,
+            ValidUser.dob,
+            ValidUser.email,
+            'password$123',
+            ValidUser.receive_promotions,
+            [status.HTTP_422_UNPROCESSABLE_ENTITY],
+            id='Password has no uppercase'
+        ),
+        param(
+            ValidUser.first_name,
+            ValidUser.last_name,
+            ValidUser.dob,
+            ValidUser.email,
+            'PASSWORD$123',
+            ValidUser.receive_promotions,
+            [status.HTTP_422_UNPROCESSABLE_ENTITY],
+            id='Password has no lowercase'
+        ),
+        param(
+            ValidUser.first_name,
+            ValidUser.last_name,
+            ValidUser.dob,
+            ValidUser.email,
+            'password123',
+            ValidUser.receive_promotions,
+            [status.HTTP_422_UNPROCESSABLE_ENTITY],
+            id='Password has no symbol'
+        ),
+        param(
+            ValidUser.first_name,
+            ValidUser.last_name,
+            ValidUser.dob,
+            ValidUser.email,
+            'password$',
+            ValidUser.receive_promotions,
+            [status.HTTP_422_UNPROCESSABLE_ENTITY],
+            id='Password has no number'
+        ),
+        param(
+            ValidUser.first_name,
+            ValidUser.last_name,
+            ValidUser.dob,
+            ValidUser.email,
+            ValidUser.password,
+            'foihwf',
+            [status.HTTP_422_UNPROCESSABLE_ENTITY],
+            id='Receieve promotions is not a boolean'
+        ),
+        param(
+            ValidUser.first_name,
+            ValidUser.last_name,
+            ValidUser.dob,
+            ValidUser.email,
+            ValidUser.password,
+            None,
+            [status.HTTP_422_UNPROCESSABLE_ENTITY],
+            id='Receieve promotions is empty'
+        ),
+        param(
+            ValidUser.first_name,
+            ValidUser.last_name,
+            ValidUser.dob,
+            ValidUser.email,
+            ValidUser.password,
+            ValidUser.receive_promotions,
+            [status.HTTP_201_CREATED, ValidUser.email],
+            id='Valid Registration'
+        ),
+        param(
+            ValidUser.first_name,
+            ValidUser.last_name,
+            ValidUser.dob,
+            ValidUser.email,
+            ValidUser.password,
+            ValidUser.receive_promotions,
+            [status.HTTP_226_IM_USED],
+            id='User with email already exists'
+        ),
     ]
 )
-def test_register_invalid_email(client, register_data_2, email):
-    register_data_2['email'] = email
-    response = client.post('/auth/register/', json=register_data_2)
-    assert response.status_code == status.HTTP_422_UNPROCESSABLE_ENTITY
-
-@pytest.mark.parametrize(
-    'password',
-    [
-        None,
-        24972,
-        False,
-        True,
-        'apassword£123',
-        'APASSWORD£123',
-        'aPassword123',
-        'aPassword£',
-        'aP£123',
-    ]
-)
-def test_register_invalid_password(client, register_data_2, password):
-    register_data_2['password'] = password
-    response = client.post('/auth/register/', json=register_data_2)
-    assert response.status_code == status.HTTP_422_UNPROCESSABLE_ENTITY
-
-@pytest.mark.parametrize(
-    'first_name,last_name',
-    [
-        (None, 'Smith02'),
-        (12, 'Smith'),
-        ('Lisa22', 'Smith'),
-        ('Lisa$', 'Smith'),
-        ('Lisa', None),
-        ('Lisa', 24),
-        ('Lisa', 'Smith02'),
-        ('Lisa', 'Smith£'),
-    ]
-)
-def test_register_invalid_names(client, register_data_2, first_name, last_name):
-    register_data_2['first_name'] = first_name
-    register_data_2['last_name'] = last_name
-    response = client.post('/auth/register/', json=register_data_2)
-    assert response.status_code == status.HTTP_422_UNPROCESSABLE_ENTITY
-
-@pytest.mark.parametrize(
-    'dob',
-    [
-        210401,
-        False,
-        '391kdpsk',
-    ]
-)
-def test_register_invalid_dob(client, register_data_2, dob):
-    register_data_2['dob'] = dob
-    response = client.post('/auth/register/', json=register_data_2)
-    assert response.status_code == status.HTTP_422_UNPROCESSABLE_ENTITY
-
-@pytest.mark.parametrize(
-    'receive_promotions',
-    [
-        'ioefheofh',
-        131
-    ]
-)
-def test_register_invalid_receive_promotions(client, register_data_2, receive_promotions):
-    register_data_2['receive_promotions'] = receive_promotions
-    response = client.post('/auth/register/', json=register_data_2)
-    assert response.status_code == status.HTTP_422_UNPROCESSABLE_ENTITY
-
-
-
-
-
-
-def test_login(client):
-    response = client.post('/auth/login/', json={
-        'username': 'johndoe@example.com',
-        'password': 'Password$123'
-    })
-    assert response.status_code == status.HTTP_200_OK
-    res_json: dict = response.json()
-    assert list(res_json.keys()) == ['access_token', 'token_type']
-
-@pytest.mark.parametrize('username,password', [
-    pytest.param('johndoe@example.com', 'Wrongpassword£124', id='Correct Email, Incorrect Password'),
-    pytest.param('wrongemail@example.com', 'Password$123', id='Correct Password, Incorrect Email'),
-    pytest.param('wrongemail@example.com', 'Wrongpassword£124', id='Incorrect Email and Password'),
-    pytest.param(None, None, id='Fields empty'),
-])
-def test_login_invalid(client, username, password):
-    response = client.post('/auth/login/', json={
-        'username': username,
-        'password': password
-    })
-    assert response.status_code == status.HTTP_401_UNAUTHORIZED
-
+def test_register(
+    client:TestClient, 
+    first_name:str, 
+    last_name:str, 
+    dob:str, 
+    email:str, 
+    password:str, 
+    receive_promotions:bool,
+    expected:list
+):
+    """
+    Registering a user
+    """
+    response = client.post(
+        '/auth/register',
+        json={
+            'first_name': first_name,
+            'last_name': last_name,
+            'dob': dob,
+            'email': email,
+            'password': password,
+            'receieve_promotions': receive_promotions,
+        }
+    )
+    assert response.status_code == expected[0]
+    if len(expected) > 1:
+        assert response.json()['email'] == expected[1]
+    

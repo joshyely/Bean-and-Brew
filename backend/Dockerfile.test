@@ -9,6 +9,7 @@ ENV PYTHONPATH=/src
 
 COPY ./app /src/app
 COPY ./tests /src/tests
+COPY ./run_tests.py /src/
 
 RUN touch test.db
 
