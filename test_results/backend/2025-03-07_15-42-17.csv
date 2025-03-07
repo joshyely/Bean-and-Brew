@@ -1,0 +1,53 @@
+id,module,name,file,doc,markers,status,message,duration
+tests/integration/auth_test.py::test_register[First name is empty],tests.integration.auth_test,test_register[First name is empty],tests/integration/auth_test.py,,parametrize,passed,,0.008179019999261072
+tests/integration/auth_test.py::test_register[Invalid first name with numerical characters],tests.integration.auth_test,test_register[Invalid first name with numerical characters],tests/integration/auth_test.py,,parametrize,passed,,0.001896589000352833
+tests/integration/auth_test.py::test_register[Invalid first name with symbols],tests.integration.auth_test,test_register[Invalid first name with symbols],tests/integration/auth_test.py,,parametrize,passed,,0.025496752000435663
+tests/integration/auth_test.py::test_register[Last name is empty],tests.integration.auth_test,test_register[Last name is empty],tests/integration/auth_test.py,,parametrize,passed,,0.0019551859995772247
+tests/integration/auth_test.py::test_register[Invalid last name with numerical characters],tests.integration.auth_test,test_register[Invalid last name with numerical characters],tests/integration/auth_test.py,,parametrize,passed,,0.0017565999996804749
+tests/integration/auth_test.py::test_register[Invalid last name with symbols],tests.integration.auth_test,test_register[Invalid last name with symbols],tests/integration/auth_test.py,,parametrize,passed,,0.0018448580003678217
+tests/integration/auth_test.py::test_register[Invalid dob as random string],tests.integration.auth_test,test_register[Invalid dob as random string],tests/integration/auth_test.py,,parametrize,passed,,0.0018641399992702645
+tests/integration/auth_test.py::test_register[Email is empty],tests.integration.auth_test,test_register[Email is empty],tests/integration/auth_test.py,,parametrize,passed,,0.0017637430000831955
+tests/integration/auth_test.py::test_register[Invalid email without dot],tests.integration.auth_test,test_register[Invalid email without dot],tests/integration/auth_test.py,,parametrize,passed,,0.0017601030003788765
+tests/integration/auth_test.py::test_register[Invalid email without @],tests.integration.auth_test,test_register[Invalid email without @],tests/integration/auth_test.py,,parametrize,passed,,0.0019895859995813225
+tests/integration/auth_test.py::test_register[Invalid email starting with a dot],tests.integration.auth_test,test_register[Invalid email starting with a dot],tests/integration/auth_test.py,,parametrize,passed,,0.0016390599994338118
+tests/integration/auth_test.py::test_register[Invalid email with more than one @],tests.integration.auth_test,test_register[Invalid email with more than one @],tests/integration/auth_test.py,,parametrize,passed,,0.0017610310005693464
+tests/integration/auth_test.py::test_register[Invalid email with two dots next to each other],tests.integration.auth_test,test_register[Invalid email with two dots next to each other],tests/integration/auth_test.py,,parametrize,passed,,0.0016682069999660598
+tests/integration/auth_test.py::test_register[Password is empty],tests.integration.auth_test,test_register[Password is empty],tests/integration/auth_test.py,,parametrize,passed,,0.0019650630001706304
+tests/integration/auth_test.py::test_register[Password is too short],tests.integration.auth_test,test_register[Password is too short],tests/integration/auth_test.py,,parametrize,passed,,0.0016800349994809949
+tests/integration/auth_test.py::test_register[Password has no uppercase],tests.integration.auth_test,test_register[Password has no uppercase],tests/integration/auth_test.py,,parametrize,passed,,0.0022634239994658856
+tests/integration/auth_test.py::test_register[Password has no lowercase],tests.integration.auth_test,test_register[Password has no lowercase],tests/integration/auth_test.py,,parametrize,passed,,0.001673291000770405
+tests/integration/auth_test.py::test_register[Password has no symbol],tests.integration.auth_test,test_register[Password has no symbol],tests/integration/auth_test.py,,parametrize,passed,,0.001850743999966653
+tests/integration/auth_test.py::test_register[Password has no number],tests.integration.auth_test,test_register[Password has no number],tests/integration/auth_test.py,,parametrize,passed,,0.0016861220001374022
+tests/integration/auth_test.py::test_register[Receieve promotions is not a boolean],tests.integration.auth_test,test_register[Receieve promotions is not a boolean],tests/integration/auth_test.py,,parametrize,failed,"assert 201 == 422
+ +  where 201 = <Response [201 Created]>.status_code",0.2913309300001856
+tests/integration/auth_test.py::test_register[Receieve promotions is empty],tests.integration.auth_test,test_register[Receieve promotions is empty],tests/integration/auth_test.py,,parametrize,failed,"assert 226 == 422
+ +  where 226 = <Response [226 IM Used]>.status_code",0.0032850810002855724
+tests/integration/auth_test.py::test_register[Valid Registration],tests.integration.auth_test,test_register[Valid Registration],tests/integration/auth_test.py,,parametrize,failed,"assert 226 == 201
+ +  where 226 = <Response [226 IM Used]>.status_code",0.0029731600006925873
+tests/integration/auth_test.py::test_register[User with email already exists],tests.integration.auth_test,test_register[User with email already exists],tests/integration/auth_test.py,,parametrize,passed,,0.0026077789998453227
+tests/integration/user_test.py::test_get_info,tests.integration.user_test,test_get_info,tests/integration/user_test.py,,,failed,"assert 401 == 200
+ +  where 401 = <Response [401 Unauthorized]>.status_code
+ +  and   200 = status.HTTP_200_OK",0.0034121340004276135
+tests/integration/user_test.py::test_get_info_no_token,tests.integration.user_test,test_get_info_no_token,tests/integration/user_test.py,,,passed,,0.0016795550000097137
+tests/integration/user_test.py::test_get_info_invalid_token,tests.integration.user_test,test_get_info_invalid_token,tests/integration/user_test.py,,,passed,,0.002183026000238897
+tests/unit/crud/user_test.py::test_create_user,tests.unit.crud.user_test,test_create_user,tests/unit/crud/user_test.py,,,passed,,0.25540758700026345
+tests/unit/crud/user_test.py::test_create_user_exists,tests.unit.crud.user_test,test_create_user_exists,tests/unit/crud/user_test.py,,,failed,Failed: DID NOT RAISE <class 'Exception'>,0.25493089799965674
+tests/unit/crud/user_test.py::test_create_user_exists,tests.unit.crud.user_test,test_create_user_exists,tests/unit/crud/user_test.py,,,error,"sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: users.email
+[SQL: INSERT INTO users (email, password_hash, first_name, last_name, dob, receive_promotions, date_created) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: ('johndoe@example.com', '$2b$12$f2nGvfCN6lRfslN27VVxSOerggtXKqrcoxJDpjvgavmMS411nfvlS', 'John', 'Doe', '2003-12-21', 0, '2025-03-07')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)",0.0008985760005089105
+tests/unit/crud/user_test.py::test_get_user_by_id,tests.unit.crud.user_test,test_get_user_by_id,tests/unit/crud/user_test.py,,,passed,,0.0015434100005222717
+tests/unit/crud/user_test.py::test_get_user_by_id_invalid[User with ID does not exist],tests.unit.crud.user_test,test_get_user_by_id_invalid[User with ID does not exist],tests/unit/crud/user_test.py,,parametrize,passed,,0.0005574329998125904
+tests/unit/crud/user_test.py::test_get_user_by_id_invalid[String is passed instead of integer],tests.unit.crud.user_test,test_get_user_by_id_invalid[String is passed instead of integer],tests/unit/crud/user_test.py,,parametrize,passed,,0.0011082459996032412
+tests/unit/crud/user_test.py::test_get_user_by_email,tests.unit.crud.user_test,test_get_user_by_email,tests/unit/crud/user_test.py,,,passed,,0.0012308939994909451
+tests/unit/crud/user_test.py::test_get_user_by_email_invalid[User with email does not exist],tests.unit.crud.user_test,test_get_user_by_email_invalid[User with email does not exist],tests/unit/crud/user_test.py,,parametrize,passed,,0.0005089329997645109
+tests/unit/crud/user_test.py::test_get_user_by_email_invalid[Wrong variable type for email is passed.],tests.unit.crud.user_test,test_get_user_by_email_invalid[Wrong variable type for email is passed.],tests/unit/crud/user_test.py,,parametrize,passed,,0.0009562989998812554
+tests/unit/crud/user_test.py::test_authenticate_user,tests.unit.crud.user_test,test_authenticate_user,tests/unit/crud/user_test.py,,,passed,,0.2545941779999339
+"tests/unit/crud/user_test.py::test_authenticate_invalid[Correct Email, Incorrect Password]",tests.unit.crud.user_test,"test_authenticate_invalid[Correct Email, Incorrect Password]",tests/unit/crud/user_test.py,,parametrize,passed,,0.25724075000016455
+"tests/unit/crud/user_test.py::test_authenticate_invalid[Correct Password, Incorrect Email]",tests.unit.crud.user_test,"test_authenticate_invalid[Correct Password, Incorrect Email]",tests/unit/crud/user_test.py,,parametrize,passed,,0.0007630600002812571
+tests/unit/crud/user_test.py::test_authenticate_invalid[Incorrect Email and Password],tests.unit.crud.user_test,test_authenticate_invalid[Incorrect Email and Password],tests/unit/crud/user_test.py,,parametrize,passed,,0.0005889110007046838
+tests/unit/log_test.py::test_create_logger[None-None-<RootLogger root (DEBUG)>],tests.unit.log_test,test_create_logger[None-None-<RootLogger root (DEBUG)>],tests/unit/log_test.py,,parametrize,passed,,0.0001593750002939487
+tests/unit/log_test.py::test_create_logger[test-None-<Logger test (DEBUG)>],tests.unit.log_test,test_create_logger[test-None-<Logger test (DEBUG)>],tests/unit/log_test.py,,parametrize,passed,,0.00015459099995496217
+tests/unit/log_test.py::test_create_logger[test-INFO-<Logger test (INFO)>],tests.unit.log_test,test_create_logger[test-INFO-<Logger test (INFO)>],tests/unit/log_test.py,,parametrize,passed,,0.00013198500073485775
+tests/unit/log_test.py::test_create_logger[test-WARNING-<Logger test (WARNING)>],tests.unit.log_test,test_create_logger[test-WARNING-<Logger test (WARNING)>],tests/unit/log_test.py,,parametrize,passed,,0.0002974440003526979
+tests/unit/log_test.py::test_create_logger[test-ERROR-<Logger test (ERROR)>],tests.unit.log_test,test_create_logger[test-ERROR-<Logger test (ERROR)>],tests/unit/log_test.py,,parametrize,passed,,0.00012686700029007625

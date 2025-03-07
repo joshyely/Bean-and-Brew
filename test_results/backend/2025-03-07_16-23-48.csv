@@ -1,0 +1,89 @@
+Description of test
+"test_register[First name is empty] 
+"
+"test_register[Invalid first name with numerical characters] 
+"
+"test_register[Invalid first name with symbols] 
+"
+"test_register[Last name is empty] 
+"
+"test_register[Invalid last name with numerical characters] 
+"
+"test_register[Invalid last name with symbols] 
+"
+"test_register[Invalid dob as random string] 
+"
+"test_register[Email is empty] 
+"
+"test_register[Invalid email without dot] 
+"
+"test_register[Invalid email without @] 
+"
+"test_register[Invalid email starting with a dot] 
+"
+"test_register[Invalid email with more than one @] 
+"
+"test_register[Invalid email with two dots next to each other] 
+"
+"test_register[Password is empty] 
+"
+"test_register[Password is too short] 
+"
+"test_register[Password has no uppercase] 
+"
+"test_register[Password has no lowercase] 
+"
+"test_register[Password has no symbol] 
+"
+"test_register[Password has no number] 
+"
+"test_register[Receieve promotions is not a boolean] 
+"
+"test_register[Receieve promotions is empty] 
+"
+"test_register[Valid Registration] 
+"
+"test_register[User with email already exists] 
+"
+"test_get_info 
+"
+"test_get_info_no_token 
+"
+"test_get_info_invalid_token 
+"
+"test_create_user 
+"
+"test_create_user_exists 
+"
+"test_create_user_exists 
+"
+"test_get_user_by_id 
+"
+"test_get_user_by_id_invalid[User with ID does not exist] 
+"
+"test_get_user_by_id_invalid[String is passed instead of integer] 
+"
+"test_get_user_by_email 
+"
+"test_get_user_by_email_invalid[User with email does not exist] 
+"
+"test_get_user_by_email_invalid[Wrong variable type for email is passed.] 
+"
+"test_authenticate_user 
+"
+"test_authenticate_invalid[Correct Email, Incorrect Password] 
+"
+"test_authenticate_invalid[Correct Password, Incorrect Email] 
+"
+"test_authenticate_invalid[Incorrect Email and Password] 
+"
+"test_create_logger[None-None-<RootLogger root (DEBUG)>] 
+"
+"test_create_logger[test-None-<Logger test (DEBUG)>] 
+"
+"test_create_logger[test-INFO-<Logger test (INFO)>] 
+"
+"test_create_logger[test-WARNING-<Logger test (WARNING)>] 
+"
+"test_create_logger[test-ERROR-<Logger test (ERROR)>] 
+"

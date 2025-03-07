@@ -1,0 +1,1233 @@
+Description of test
+"test_register[First name is empty] 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_register[Invalid first name with numerical characters] 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_register[Invalid first name with symbols] 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_register[Last name is empty] 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_register[Invalid last name with numerical characters] 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_register[Invalid last name with symbols] 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_register[Invalid dob as random string] 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_register[Email is empty] 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_register[Invalid email without dot] 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_register[Invalid email without @] 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_register[Invalid email starting with a dot] 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_register[Invalid email with more than one @] 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_register[Invalid email with two dots next to each other] 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_register[Password is empty] 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_register[Password is too short] 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_register[Password has no uppercase] 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_register[Password has no lowercase] 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_register[Password has no symbol] 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_register[Password has no number] 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_register[Receieve promotions is not a boolean] 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_register[Receieve promotions is empty] 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_register[Valid Registration] 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_register[User with email already exists] 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_get_info 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_get_info_no_token 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_get_info_invalid_token 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_create_user 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_create_user_exists 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_create_user_exists 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_get_user_by_id 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_get_user_by_id_invalid[User with ID does not exist] 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_get_user_by_id_invalid[String is passed instead of integer] 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_get_user_by_email 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_get_user_by_email_invalid[User with email does not exist] 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_get_user_by_email_invalid[Wrong variable type for email is passed.] 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_authenticate_user 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_authenticate_invalid[Correct Email, Incorrect Password] 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_authenticate_invalid[Correct Password, Incorrect Email] 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_authenticate_invalid[Incorrect Email and Password] 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_create_logger[None-None-<RootLogger root (DEBUG)>] 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_create_logger[test-None-<Logger test (DEBUG)>] 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_create_logger[test-INFO-<Logger test (INFO)>] 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_create_logger[test-WARNING-<Logger test (WARNING)>] 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "
+"test_create_logger[test-ERROR-<Logger test (ERROR)>] 
+Item responsible for setting up and executing a Python test function.
+
+    :param name:
+        The full function name, including any decorations like those
+        added by parametrization (``my_func[my_param]``).
+    :param parent:
+        The parent Node.
+    :param config:
+        The pytest Config object.
+    :param callspec:
+        If given, this function has been parametrized and the callspec contains
+        meta information about the parametrization.
+    :param callobj:
+        If given, the object which will be called when the Function is invoked,
+        otherwise the callobj will be obtained from ``parent`` using ``originalname``.
+    :param keywords:
+        Keywords bound to the function object for ""-k"" matching.
+    :param session:
+        The pytest Session object.
+    :param fixtureinfo:
+        Fixture information already resolved at this fixture node..
+    :param originalname:
+        The attribute name to use for accessing the underlying function object.
+        Defaults to ``name``. Set this if name is different from the original name,
+        for example when it contains decorations like those added by parametrization
+        (``my_func[my_param]``).
+    "

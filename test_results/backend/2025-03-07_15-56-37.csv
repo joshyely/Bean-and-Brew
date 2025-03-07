@@ -1,0 +1,53 @@
+doc,parameters,message
+,"dob=2003-12-21,email=johndoe@example.com,expected=[422],first_name=None,last_name=Doe,password=Password$123,receive_promotions=False",
+,"dob=2003-12-21,email=johndoe@example.com,expected=[422],first_name=John32,last_name=Doe,password=Password$123,receive_promotions=False",
+,"dob=2003-12-21,email=johndoe@example.com,expected=[422],first_name=John$,last_name=Doe,password=Password$123,receive_promotions=False",
+,"dob=2003-12-21,email=johndoe@example.com,expected=[422],first_name=John,last_name=None,password=Password$123,receive_promotions=False",
+,"dob=2003-12-21,email=johndoe@example.com,expected=[422],first_name=John,last_name=Doe49,password=Password$123,receive_promotions=False",
+,"dob=2003-12-21,email=johndoe@example.com,expected=[422],first_name=John,last_name=Doe£,password=Password$123,receive_promotions=False",
+,"dob=odihwioh125,email=johndoe@example.com,expected=[422],first_name=John,last_name=Doe,password=Password$123,receive_promotions=False",
+,"dob=2003-12-21,email=None,expected=[422],first_name=John,last_name=Doe,password=Password$123,receive_promotions=False",
+,"dob=2003-12-21,email=johndoe@example,expected=[422],first_name=John,last_name=Doe,password=Password$123,receive_promotions=False",
+,"dob=2003-12-21,email=johndoeexample.com,expected=[422],first_name=John,last_name=Doe,password=Password$123,receive_promotions=False",
+,"dob=2003-12-21,email=.johndoe@example.com,expected=[422],first_name=John,last_name=Doe,password=Password$123,receive_promotions=False",
+,"dob=2003-12-21,email=johndoe@@example.com,expected=[422],first_name=John,last_name=Doe,password=Password$123,receive_promotions=False",
+,"dob=2003-12-21,email=johndoe@example..com,expected=[422],first_name=John,last_name=Doe,password=Password$123,receive_promotions=False",
+,"dob=2003-12-21,email=johndoe@example.com,expected=[422],first_name=John,last_name=Doe,password=None,receive_promotions=False",
+,"dob=2003-12-21,email=johndoe@example.com,expected=[422],first_name=John,last_name=Doe,password=Pa$12,receive_promotions=False",
+,"dob=2003-12-21,email=johndoe@example.com,expected=[422],first_name=John,last_name=Doe,password=password$123,receive_promotions=False",
+,"dob=2003-12-21,email=johndoe@example.com,expected=[422],first_name=John,last_name=Doe,password=PASSWORD$123,receive_promotions=False",
+,"dob=2003-12-21,email=johndoe@example.com,expected=[422],first_name=John,last_name=Doe,password=password123,receive_promotions=False",
+,"dob=2003-12-21,email=johndoe@example.com,expected=[422],first_name=John,last_name=Doe,password=password$,receive_promotions=False",
+,"dob=2003-12-21,email=johndoe@example.com,expected=[422],first_name=John,last_name=Doe,password=Password$123,receive_promotions=foihwf","assert 201 == 422
+ +  where 201 = <Response [201 Created]>.status_code"
+,"dob=2003-12-21,email=johndoe@example.com,expected=[422],first_name=John,last_name=Doe,password=Password$123,receive_promotions=None","assert 226 == 422
+ +  where 226 = <Response [226 IM Used]>.status_code"
+,"dob=2003-12-21,email=johndoe@example.com,expected=[201, 'johndoe@example.com'],first_name=John,last_name=Doe,password=Password$123,receive_promotions=False","assert 226 == 201
+ +  where 226 = <Response [226 IM Used]>.status_code"
+,"dob=2003-12-21,email=johndoe@example.com,expected=[226],first_name=John,last_name=Doe,password=Password$123,receive_promotions=False",
+,,"assert 401 == 200
+ +  where 401 = <Response [401 Unauthorized]>.status_code
+ +  and   200 = status.HTTP_200_OK"
+,,
+,,
+,,
+,,Failed: DID NOT RAISE <class 'Exception'>
+,,"sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: users.email
+[SQL: INSERT INTO users (email, password_hash, first_name, last_name, dob, receive_promotions, date_created) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: ('johndoe@example.com', '$2b$12$wsD2oSGor4gnU4/OsBH9U.B3g9HeNFP43h3smSusC5l99HaJ5jDza', 'John', 'Doe', '2003-12-21', 0, '2025-03-07')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)"
+,,
+,invalid_id=32,
+,invalid_id=string,
+,,
+,invalid_email=random_email@hotmail.com,
+,invalid_email=12,
+,,
+,"email=johndoe@example.com,password=Wrongpassword£124",
+,"email=wrongemail@example.com,password=Password$123",
+,"email=wrongemail@example.com,password=Wrongpassword£124",
+,"expected=<RootLogger root (DEBUG)>,level=None,name=None",
+,"expected=<Logger test (DEBUG)>,level=None,name=test",
+,"expected=<Logger test (INFO)>,level=INFO,name=test",
+,"expected=<Logger test (WARNING)>,level=WARNING,name=test",
+,"expected=<Logger test (ERROR)>,level=ERROR,name=test",

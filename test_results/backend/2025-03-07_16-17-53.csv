@@ -1,0 +1,265 @@
+Description of test
+"test_register[First name is empty] 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_register[Invalid first name with numerical characters] 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_register[Invalid first name with symbols] 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_register[Last name is empty] 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_register[Invalid last name with numerical characters] 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_register[Invalid last name with symbols] 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_register[Invalid dob as random string] 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_register[Email is empty] 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_register[Invalid email without dot] 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_register[Invalid email without @] 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_register[Invalid email starting with a dot] 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_register[Invalid email with more than one @] 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_register[Invalid email with two dots next to each other] 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_register[Password is empty] 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_register[Password is too short] 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_register[Password has no uppercase] 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_register[Password has no lowercase] 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_register[Password has no symbol] 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_register[Password has no number] 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_register[Receieve promotions is not a boolean] 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_register[Receieve promotions is empty] 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_register[Valid Registration] 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_register[User with email already exists] 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_get_info 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_get_info_no_token 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_get_info_invalid_token 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_create_user 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_create_user_exists 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_create_user_exists 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_get_user_by_id 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_get_user_by_id_invalid[User with ID does not exist] 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_get_user_by_id_invalid[String is passed instead of integer] 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_get_user_by_email 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_get_user_by_email_invalid[User with email does not exist] 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_get_user_by_email_invalid[Wrong variable type for email is passed.] 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_authenticate_user 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_authenticate_invalid[Correct Email, Incorrect Password] 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_authenticate_invalid[Correct Password, Incorrect Email] 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_authenticate_invalid[Incorrect Email and Password] 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_create_logger[None-None-<RootLogger root (DEBUG)>] 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_create_logger[test-None-<Logger test (DEBUG)>] 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_create_logger[test-INFO-<Logger test (INFO)>] 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_create_logger[test-WARNING-<Logger test (WARNING)>] 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "
+"test_create_logger[test-ERROR-<Logger test (ERROR)>] 
+Basic test report object (also used for setup and teardown calls if
+    they fail).
+
+    Reports can contain arbitrary extra attributes.
+    "

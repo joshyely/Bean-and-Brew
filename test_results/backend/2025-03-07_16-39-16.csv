@@ -1,0 +1,139 @@
+Description of test,Test data to be used (if required)
+"test_register[First name is empty] 
+tests.integration.auth_test 
+
+    Registering a user
+     
+","{'first_name': None, 'last_name': 'Doe', 'dob': '2003-12-21', 'email': 'johndoe@example.com', 'password': 'Password$123', 'receive_promotions': False, 'expected': [422]}"
+"test_register[Invalid first name with numerical characters] 
+tests.integration.auth_test 
+
+    Registering a user
+     
+","{'first_name': 'John32', 'last_name': 'Doe', 'dob': '2003-12-21', 'email': 'johndoe@example.com', 'password': 'Password$123', 'receive_promotions': False, 'expected': [422]}"
+"test_register[Invalid first name with symbols] 
+tests.integration.auth_test 
+
+    Registering a user
+     
+","{'first_name': 'John$', 'last_name': 'Doe', 'dob': '2003-12-21', 'email': 'johndoe@example.com', 'password': 'Password$123', 'receive_promotions': False, 'expected': [422]}"
+"test_register[Last name is empty] 
+tests.integration.auth_test 
+
+    Registering a user
+     
+","{'first_name': 'John', 'last_name': None, 'dob': '2003-12-21', 'email': 'johndoe@example.com', 'password': 'Password$123', 'receive_promotions': False, 'expected': [422]}"
+"test_register[Invalid last name with numerical characters] 
+tests.integration.auth_test 
+
+    Registering a user
+     
+","{'first_name': 'John', 'last_name': 'Doe49', 'dob': '2003-12-21', 'email': 'johndoe@example.com', 'password': 'Password$123', 'receive_promotions': False, 'expected': [422]}"
+"test_register[Invalid last name with symbols] 
+tests.integration.auth_test 
+
+    Registering a user
+     
+","{'first_name': 'John', 'last_name': 'Doe£', 'dob': '2003-12-21', 'email': 'johndoe@example.com', 'password': 'Password$123', 'receive_promotions': False, 'expected': [422]}"
+"test_register[Invalid dob as random string] 
+tests.integration.auth_test 
+
+    Registering a user
+     
+","{'first_name': 'John', 'last_name': 'Doe', 'dob': 'odihwioh125', 'email': 'johndoe@example.com', 'password': 'Password$123', 'receive_promotions': False, 'expected': [422]}"
+"test_register[Email is empty] 
+tests.integration.auth_test 
+
+    Registering a user
+     
+","{'first_name': 'John', 'last_name': 'Doe', 'dob': '2003-12-21', 'email': None, 'password': 'Password$123', 'receive_promotions': False, 'expected': [422]}"
+"test_register[Invalid email without dot] 
+tests.integration.auth_test 
+
+    Registering a user
+     
+","{'first_name': 'John', 'last_name': 'Doe', 'dob': '2003-12-21', 'email': 'johndoe@example', 'password': 'Password$123', 'receive_promotions': False, 'expected': [422]}"
+"test_register[Invalid email without @] 
+tests.integration.auth_test 
+
+    Registering a user
+     
+","{'first_name': 'John', 'last_name': 'Doe', 'dob': '2003-12-21', 'email': 'johndoeexample.com', 'password': 'Password$123', 'receive_promotions': False, 'expected': [422]}"
+"test_register[Invalid email starting with a dot] 
+tests.integration.auth_test 
+
+    Registering a user
+     
+","{'first_name': 'John', 'last_name': 'Doe', 'dob': '2003-12-21', 'email': '.johndoe@example.com', 'password': 'Password$123', 'receive_promotions': False, 'expected': [422]}"
+"test_register[Invalid email with more than one @] 
+tests.integration.auth_test 
+
+    Registering a user
+     
+","{'first_name': 'John', 'last_name': 'Doe', 'dob': '2003-12-21', 'email': 'johndoe@@example.com', 'password': 'Password$123', 'receive_promotions': False, 'expected': [422]}"
+"test_register[Invalid email with two dots next to each other] 
+tests.integration.auth_test 
+
+    Registering a user
+     
+","{'first_name': 'John', 'last_name': 'Doe', 'dob': '2003-12-21', 'email': 'johndoe@example..com', 'password': 'Password$123', 'receive_promotions': False, 'expected': [422]}"
+"test_register[Password is empty] 
+tests.integration.auth_test 
+
+    Registering a user
+     
+","{'first_name': 'John', 'last_name': 'Doe', 'dob': '2003-12-21', 'email': 'johndoe@example.com', 'password': None, 'receive_promotions': False, 'expected': [422]}"
+"test_register[Password is too short] 
+tests.integration.auth_test 
+
+    Registering a user
+     
+","{'first_name': 'John', 'last_name': 'Doe', 'dob': '2003-12-21', 'email': 'johndoe@example.com', 'password': 'Pa$12', 'receive_promotions': False, 'expected': [422]}"
+"test_register[Password has no uppercase] 
+tests.integration.auth_test 
+
+    Registering a user
+     
+","{'first_name': 'John', 'last_name': 'Doe', 'dob': '2003-12-21', 'email': 'johndoe@example.com', 'password': 'password$123', 'receive_promotions': False, 'expected': [422]}"
+"test_register[Password has no lowercase] 
+tests.integration.auth_test 
+
+    Registering a user
+     
+","{'first_name': 'John', 'last_name': 'Doe', 'dob': '2003-12-21', 'email': 'johndoe@example.com', 'password': 'PASSWORD$123', 'receive_promotions': False, 'expected': [422]}"
+"test_register[Password has no symbol] 
+tests.integration.auth_test 
+
+    Registering a user
+     
+","{'first_name': 'John', 'last_name': 'Doe', 'dob': '2003-12-21', 'email': 'johndoe@example.com', 'password': 'password123', 'receive_promotions': False, 'expected': [422]}"
+"test_register[Password has no number] 
+tests.integration.auth_test 
+
+    Registering a user
+     
+","{'first_name': 'John', 'last_name': 'Doe', 'dob': '2003-12-21', 'email': 'johndoe@example.com', 'password': 'password$', 'receive_promotions': False, 'expected': [422]}"
+"test_register[Receieve promotions is not a boolean] 
+tests.integration.auth_test 
+
+    Registering a user
+     
+","{'first_name': 'John', 'last_name': 'Doe', 'dob': '2003-12-21', 'email': 'johndoe@example.com', 'password': 'Password$123', 'receive_promotions': 'foihwf', 'expected': [422]}"
+"test_register[Receieve promotions is empty] 
+tests.integration.auth_test 
+
+    Registering a user
+     
+","{'first_name': 'John', 'last_name': 'Doe', 'dob': '2003-12-21', 'email': 'johndoe@example.com', 'password': 'Password$123', 'receive_promotions': None, 'expected': [422]}"
+"test_register[Valid Registration] 
+tests.integration.auth_test 
+
+    Registering a user
+     
+","{'first_name': 'John', 'last_name': 'Doe', 'dob': '2003-12-21', 'email': 'johndoe@example.com', 'password': 'Password$123', 'receive_promotions': False, 'expected': [201, 'johndoe@example.com']}"
+"test_register[User with email already exists] 
+tests.integration.auth_test 
+
+    Registering a user
+     
+","{'first_name': 'John', 'last_name': 'Doe', 'dob': '2003-12-21', 'email': 'johndoe@example.com', 'password': 'Password$123', 'receive_promotions': False, 'expected': [226]}"
