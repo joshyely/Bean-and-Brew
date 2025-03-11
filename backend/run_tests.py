@@ -7,4 +7,4 @@ from datetime import datetime
 
 if __name__ == '__main__':
     name = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
-    subprocess.run(f'pytest -q --csv ./test_results/{name}.csv --csv-columns pearson_columns', shell=True)
+    subprocess.run(f'pytest -q --csv ./test_results/{name}.csv --csv-columns description,test_data,expected,actual,comments', shell=True)

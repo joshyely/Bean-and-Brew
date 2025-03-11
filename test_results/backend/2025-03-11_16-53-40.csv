@@ -1,0 +1,531 @@
+Description of test,Test data to be used (if required),Expected result,Actual result,Comments
+"test_register[First name is empty]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","None, Doe, 2003-12-21, johndoe@example.com, Password$123, False",HTTP 422,HTTP 422,passed
+"test_register[Invalid first name with numerical characters]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John32, Doe, 2003-12-21, johndoe@example.com, Password$123, False",HTTP 422,HTTP 422,passed
+"test_register[Invalid first name with symbols]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John$, Doe, 2003-12-21, johndoe@example.com, Password$123, False",HTTP 422,HTTP 422,passed
+"test_register[Last name is empty]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, None, 2003-12-21, johndoe@example.com, Password$123, False",HTTP 422,HTTP 422,passed
+"test_register[Invalid last name with numerical characters]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe49, 2003-12-21, johndoe@example.com, Password$123, False",HTTP 422,HTTP 422,passed
+"test_register[Invalid last name with symbols]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe£, 2003-12-21, johndoe@example.com, Password$123, False",HTTP 422,HTTP 422,passed
+"test_register[Invalid dob as random string]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, odihwioh125, johndoe@example.com, Password$123, False",HTTP 422,HTTP 422,passed
+"test_register[Email is empty]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, None, Password$123, False",HTTP 422,HTTP 422,passed
+"test_register[Invalid email without dot]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, johndoe@example, Password$123, False",HTTP 422,HTTP 422,passed
+"test_register[Invalid email without @]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, johndoeexample.com, Password$123, False",HTTP 422,HTTP 422,passed
+"test_register[Invalid email starting with a dot]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, .johndoe@example.com, Password$123, False",HTTP 422,HTTP 422,passed
+"test_register[Invalid email with more than one @]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, johndoe@@example.com, Password$123, False",HTTP 422,HTTP 422,passed
+"test_register[Invalid email with two dots next to each other]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, johndoe@example..com, Password$123, False",HTTP 422,HTTP 422,passed
+"test_register[Password is empty]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, johndoe@example.com, None, False",HTTP 422,HTTP 422,passed
+"test_register[Password is too short]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, johndoe@example.com, Pa$12, False",HTTP 422,HTTP 422,passed
+"test_register[Password has no uppercase]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, johndoe@example.com, password$123, False",HTTP 422,HTTP 422,passed
+"test_register[Password has no lowercase]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, johndoe@example.com, PASSWORD$123, False",HTTP 422,HTTP 422,passed
+"test_register[Password has no symbol]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, johndoe@example.com, password123, False",HTTP 422,HTTP 422,passed
+"test_register[Password has no number]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, johndoe@example.com, password$, False",HTTP 422,HTTP 422,passed
+"test_register[Receieve promotions is not a boolean]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, johndoe@example.com, Password$123, foihwf",HTTP 422,HTTP 201,failed
+"test_register[Receieve promotions is empty]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, johndoe@example.com, Password$123, None",HTTP 422,HTTP 226,failed
+"test_register[Valid Registration]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, johndoe@example.com, Password$123, False",HTTP 201,HTTP 226,failed
+"test_register[User with email already exists]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, johndoe@example.com, Password$123, False",HTTP 226,HTTP 226,passed
+"test_get_info
+
+Location: tests/integration/user_test.py
+
+    Test API endpoint for getting user information using a valid JWT token
+    Endpoint: /user/
+    ",,,,failed
+"test_get_info_no_token
+
+Location: tests/integration/user_test.py
+
+    Test API endpoint for getting user information with no token
+    Endpoint: /user/
+    ",,,,passed
+"test_get_info_invalid_token
+
+Location: tests/integration/user_test.py
+
+    Test API endpoint for getting user information with an invalid token
+    Endpoint: /user/
+    ",,,,passed
+"test_create_user
+
+Location: tests/unit/crud/user_test.py
+
+    Test creating a new user through the crud.
+    ",,,,"failed
+Errors:
+file /src/tests/unit/crud/user_test.py, line 12
+  def test_create_user(temp_db, valid_user:dict, record_data, logger):
+file /src/tests/conftest.py, line 63
+  @pytest.fixture
+  def valid_user(
+E       fixture 'valid_password' not found
+>       available fixtures: anyio_backend, anyio_backend_name, anyio_backend_options, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, client, doctest_namespace, fail_after_cannot_order, logger, monkeypatch, pytestconfig, record_data, record_property, record_testsuite_property, record_xml_attribute, recwarn, temp_db, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory, token, valid_dob_object, valid_dob_string, valid_email, valid_first_name, valid_id, valid_last_name, valid_receive_promotions_false, valid_user
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/src/tests/conftest.py:63"
+"test_create_user_exists
+
+Location: tests/unit/crud/user_test.py
+
+    Test attemping to create a new user with an email that already exists.
+    ",,,,"failed
+Errors:
+file /src/tests/unit/crud/user_test.py, line 39
+  def test_create_user_exists(temp_db, valid_user:dict, record_data):
+file /src/tests/conftest.py, line 63
+  @pytest.fixture
+  def valid_user(
+E       fixture 'valid_password' not found
+>       available fixtures: anyio_backend, anyio_backend_name, anyio_backend_options, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, client, doctest_namespace, fail_after_cannot_order, logger, monkeypatch, pytestconfig, record_data, record_property, record_testsuite_property, record_xml_attribute, recwarn, temp_db, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory, token, valid_dob_object, valid_dob_string, valid_email, valid_first_name, valid_id, valid_last_name, valid_receive_promotions_false, valid_user
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/src/tests/conftest.py:63"
+"test_get_user_by_id
+
+Location: tests/unit/crud/user_test.py
+
+    Test getting a user from the crud using their id.
+    ","memory db session, user id: 1","type(result) == User 
+AND
+ result.email == johndoe@example.com",type(result) == <class 'NoneType'> ,failed
+"test_get_user_by_id_invalid[User with ID does not exist]
+
+Location: tests/unit/crud/user_test.py
+
+    Test to ensure the crud returns None when an invalid user id is entered when trying to retrieve a user.
+    ","memory db session, invalid user id: 32",None,None,passed
+"test_get_user_by_id_invalid[String is passed instead of integer]
+
+Location: tests/unit/crud/user_test.py
+
+    Test to ensure the crud returns None when an invalid user id is entered when trying to retrieve a user.
+    ","memory db session, invalid user id: string",None,None,passed
+"test_get_user_by_email
+
+Location: tests/unit/crud/user_test.py
+
+    Test getting a user from the crud using their email.
+    ","memory db session, email: johndoe@example.com","type(result) == User 
+AND
+ result.email == johndoe@example.com",type(result) == <class 'NoneType'> ,failed
+"test_get_user_by_email_invalid[User with email does not exist]
+
+Location: tests/unit/crud/user_test.py
+
+    Test to ensure the crud returns None when an invalid user email is entered when trying to retrieve a user.
+    ","memory db session, invalid email: random_email@hotmail.com",None,None,passed
+"test_get_user_by_email_invalid[Wrong variable type for email is passed.]
+
+Location: tests/unit/crud/user_test.py
+
+    Test to ensure the crud returns None when an invalid user email is entered when trying to retrieve a user.
+    ","memory db session, invalid email: 12",None,None,passed
+"test_authenticate_user
+
+Location: tests/unit/crud/user_test.py
+
+    Test authenticating a user with the correct credentials.
+    ",,,,"failed
+Errors:
+file /src/tests/unit/crud/user_test.py, line 125
+  def test_authenticate_user(temp_db, valid_email:str, valid_password:str, record_data):
+E       fixture 'valid_password' not found
+>       available fixtures: anyio_backend, anyio_backend_name, anyio_backend_options, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, client, doctest_namespace, fail_after_cannot_order, logger, monkeypatch, pytestconfig, record_data, record_property, record_testsuite_property, record_xml_attribute, recwarn, temp_db, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory, token, valid_dob_object, valid_dob_string, valid_email, valid_first_name, valid_id, valid_last_name, valid_receive_promotions_false, valid_user
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/src/tests/unit/crud/user_test.py:125"
+"test_authenticate_invalid[Correct Email, Incorrect Password]
+
+Location: tests/unit/crud/user_test.py
+
+    Test the user authentication function with invalid credentials.
+    ",,,,"failed
+Errors:
+self = <sqlalchemy.engine.base.Connection object at 0x742ff65ff8b0>
+dialect = <sqlalchemy.dialects.sqlite.pysqlite.SQLiteDialect_pysqlite object at 0x742ff4bca8f0>
+context = <sqlalchemy.dialects.sqlite.base.SQLiteExecutionContext object at 0x742ff65fd390>
+statement = <sqlalchemy.dialects.sqlite.base.SQLiteCompiler object at 0x742fefe7e5c0>
+parameters = [(<function <lambda> at 0x742ff4bd3a30>, 1, 0)]
+
+    def _exec_single_context(
+        self,
+        dialect: Dialect,
+        context: ExecutionContext,
+        statement: Union[str, Compiled],
+        parameters: Optional[_AnyMultiExecuteParams],
+    ) -> CursorResult[Any]:
+        """"""continue the _execute_context() method for a single DBAPI
+        cursor.execute() or cursor.executemany() call.
+    
+        """"""
+        if dialect.bind_typing is BindTyping.SETINPUTSIZES:
+            generic_setinputsizes = context._prepare_set_input_sizes()
+    
+            if generic_setinputsizes:
+                try:
+                    dialect.do_set_input_sizes(
+                        context.cursor, generic_setinputsizes, context
+                    )
+                except BaseException as e:
+                    self._handle_dbapi_exception(
+                        e, str(statement), parameters, None, context
+                    )
+    
+        cursor, str_statement, parameters = (
+            context.cursor,
+            context.statement,
+            context.parameters,
+        )
+    
+        effective_parameters: Optional[_AnyExecuteParams]
+    
+        if not context.executemany:
+            effective_parameters = parameters[0]
+        else:
+            effective_parameters = parameters
+    
+        if self._has_events or self.engine._has_events:
+            for fn in self.dispatch.before_cursor_execute:
+                str_statement, effective_parameters = fn(
+                    self,
+                    cursor,
+                    str_statement,
+                    effective_parameters,
+                    context,
+                    context.executemany,
+                )
+    
+        if self._echo:
+            self._log_info(str_statement)
+    
+            stats = context._get_cache_stats()
+    
+            if not self.engine.hide_parameters:
+                self._log_info(
+                    ""[%s] %r"",
+                    stats,
+                    sql_util._repr_params(
+                        effective_parameters,
+                        batches=10,
+                        ismulti=context.executemany,
+                    ),
+                )
+            else:
+                self._log_info(
+                    ""[%s] [SQL parameters hidden due to hide_parameters=True]"",
+                    stats,
+                )
+    
+        evt_handled: bool = False
+        try:
+            if context.execute_style is ExecuteStyle.EXECUTEMANY:
+                effective_parameters = cast(
+                    ""_CoreMultiExecuteParams"", effective_parameters
+                )
+                if self.dialect._has_events:
+                    for fn in self.dialect.dispatch.do_executemany:
+                        if fn(
+                            cursor,
+                            str_statement,
+                            effective_parameters,
+                            context,
+                        ):
+                            evt_handled = True
+                            break
+                if not evt_handled:
+                    self.dialect.do_executemany(
+                        cursor,
+                        str_statement,
+                        effective_parameters,
+                        context,
+                    )
+            elif not effective_parameters and context.no_parameters:
+                if self.dialect._has_events:
+                    for fn in self.dialect.dispatch.do_execute_no_params:
+                        if fn(cursor, str_statement, context):
+                            evt_handled = True
+                            break
+                if not evt_handled:
+                    self.dialect.do_execute_no_params(
+                        cursor, str_statement, context
+                    )
+            else:
+                effective_parameters = cast(
+                    ""_CoreSingleExecuteParams"", effective_parameters
+                )
+                if self.dialect._has_events:
+                    for fn in self.dialect.dispatch.do_execute:
+                        if fn(
+                            cursor,
+                            str_statement,
+                            effective_parameters,
+                            context,
+                        ):
+                            evt_handled = True
+                            break
+                if not evt_handled:
+>                   self.dialect.do_execute(
+                        cursor, str_statement, effective_parameters, context
+                    )
+
+/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py:1964: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <sqlalchemy.dialects.sqlite.pysqlite.SQLiteDialect_pysqlite object at 0x742ff4bca8f0>
+cursor = <sqlite3.Cursor object at 0x742feff6e740>
+statement = 'SELECT users.email AS users_email, users.password_hash AS users_password_hash, users.first_name AS users_first_name, ...users.date_created AS users_date_created, users.id AS users_id \nFROM users \nWHERE users.email = ?\n LIMIT ? OFFSET ?'
+parameters = (<function <lambda> at 0x742ff4bd3a30>, 1, 0)
+context = <sqlalchemy.dialects.sqlite.base.SQLiteExecutionContext object at 0x742ff65fd390>
+
+    def do_execute(self, cursor, statement, parameters, context=None):
+>       cursor.execute(statement, parameters)
+E       sqlite3.InterfaceError: Error binding parameter 0 - probably unsupported type.
+
+/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/default.py:942: InterfaceError
+
+The above exception was the direct cause of the following exception:
+
+temp_db = <sqlalchemy.orm.session.Session object at 0x742ff65fd300>
+email = <function <lambda> at 0x742ff4bd3a30>, password = 'Wrongpassword£124'
+record_data = <function record_data.<locals>.func at 0x742fefea45e0>
+
+    @pytest.mark.parametrize('email,password', [
+        pytest.param(lambda request: request.getfixturevalue('valid_email'), 'Wrongpassword£124', id='Correct Email, Incorrect Password'),
+        pytest.param('wrongemail@example.com', lambda request: request.getfixturevalue('valid_password'), id='Correct Password, Incorrect Email'),
+        pytest.param('wrongemail@example.com', 'Wrongpassword£124', id='Incorrect Email and Password'),
+    ])
+    def test_authenticate_invalid(temp_db, email:str, password:str, record_data):
+        """"""
+        Test the user authentication function with invalid credentials.
+        """"""
+>       result = user.authenticate_user(
+            temp_db,
+            OAuth2PasswordRequestForm(username=email, password=password)
+        )
+
+tests/unit/crud/user_test.py:157: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+app/crud/user.py:69: in authenticate_user
+    user_db: User = get_user_by_email(db, email=user.username)
+app/crud/user.py:55: in get_user_by_email
+    return db.query(User).filter_by(email=email).first()
+/usr/local/lib/python3.10/site-packages/sqlalchemy/orm/query.py:2754: in first
+    return self.limit(1)._iter().first()  # type: ignore
+/usr/local/lib/python3.10/site-packages/sqlalchemy/orm/query.py:2853: in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+/usr/local/lib/python3.10/site-packages/sqlalchemy/orm/session.py:2365: in execute
+    return self._execute_internal(
+/usr/local/lib/python3.10/site-packages/sqlalchemy/orm/session.py:2251: in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+/usr/local/lib/python3.10/site-packages/sqlalchemy/orm/context.py:305: in orm_execute_statement
+    result = conn.execute(
+/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py:1416: in execute
+    return meth(
+/usr/local/lib/python3.10/site-packages/sqlalchemy/sql/elements.py:516: in _execute_on_connection
+    return connection._execute_clauseelement(
+/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py:1638: in _execute_clauseelement
+    ret = self._execute_context(
+/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py:1843: in _execute_context
+    return self._exec_single_context(
+/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py:1983: in _exec_single_context
+    self._handle_dbapi_exception(
+/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py:2352: in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py:1964: in _exec_single_context
+    self.dialect.do_execute(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <sqlalchemy.dialects.sqlite.pysqlite.SQLiteDialect_pysqlite object at 0x742ff4bca8f0>
+cursor = <sqlite3.Cursor object at 0x742feff6e740>
+statement = 'SELECT users.email AS users_email, users.password_hash AS users_password_hash, users.first_name AS users_first_name, ...users.date_created AS users_date_created, users.id AS users_id \nFROM users \nWHERE users.email = ?\n LIMIT ? OFFSET ?'
+parameters = (<function <lambda> at 0x742ff4bd3a30>, 1, 0)
+context = <sqlalchemy.dialects.sqlite.base.SQLiteExecutionContext object at 0x742ff65fd390>
+
+    def do_execute(self, cursor, statement, parameters, context=None):
+>       cursor.execute(statement, parameters)
+E       sqlalchemy.exc.InterfaceError: (sqlite3.InterfaceError) Error binding parameter 0 - probably unsupported type.
+E       [SQL: SELECT users.email AS users_email, users.password_hash AS users_password_hash, users.first_name AS users_first_name, users.last_name AS users_last_name, users.dob AS users_dob, users.receive_promotions AS users_receive_promotions, users.date_created AS users_date_created, users.id AS users_id 
+E       FROM users 
+E       WHERE users.email = ?
+E        LIMIT ? OFFSET ?]
+E       [parameters: (<function <lambda> at 0x742ff4bd3a30>, 1, 0)]
+E       (Background on this error at: https://sqlalche.me/e/20/rvf5)
+
+/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/default.py:942: InterfaceError"
+"test_authenticate_invalid[Correct Password, Incorrect Email]
+
+Location: tests/unit/crud/user_test.py
+
+    Test the user authentication function with invalid credentials.
+    ","memory db session: <sqlalchemy.orm.session.Session object at 0x742fee9e7a30>, email: wrongemail@example.com, password: <function <lambda> at 0x742ff4bd3ac0>",,,passed
+"test_authenticate_invalid[Incorrect Email and Password]
+
+Location: tests/unit/crud/user_test.py
+
+    Test the user authentication function with invalid credentials.
+    ","memory db session: <sqlalchemy.orm.session.Session object at 0x742fee9e7af0>, email: wrongemail@example.com, password: Wrongpassword£124",,,passed
+"test_create_logger[Creating a root logger with no name or level set]
+
+Location: tests/unit/log_test.py
+
+    Test creating a new logger.
+    ","None, None",<RootLogger root (DEBUG)>,<RootLogger root (DEBUG)>,passed
+"test_create_logger[Creating a logger named ""test""]
+
+Location: tests/unit/log_test.py
+
+    Test creating a new logger.
+    ","test, None",<Logger test (DEBUG)>,<Logger test (DEBUG)>,passed
+"test_create_logger[Creating a logger named ""test"" with the level set to INFO]
+
+Location: tests/unit/log_test.py
+
+    Test creating a new logger.
+    ","test, INFO",<Logger test (INFO)>,<Logger test (INFO)>,passed
+"test_create_logger[Creating a logger named ""test"" with the level set to WARNING]
+
+Location: tests/unit/log_test.py
+
+    Test creating a new logger.
+    ","test, WARNING",<Logger test (WARNING)>,<Logger test (WARNING)>,passed
+"test_create_logger[Creating a logger named ""test"" with the level set to ERROR]
+
+Location: tests/unit/log_test.py
+
+    Test creating a new logger.
+    ","test, ERROR",<Logger test (ERROR)>,<Logger test (ERROR)>,passed

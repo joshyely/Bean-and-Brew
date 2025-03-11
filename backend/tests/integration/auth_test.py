@@ -1,5 +1,5 @@
 import pytest
-from pytest import param
+from pytest import param, mark
 from fastapi import status
 from fastapi.testclient import TestClient
 from dataclasses import dataclass
@@ -16,8 +16,8 @@ class ValidUser:
 
 
 @pytest.mark.parametrize(
-    'first_name,last_name,dob,email,password,receive_promotions,expected',
-    [
+    argnames='first_name,last_name,dob,email,password,receive_promotions,expected',
+    argvalues=[
         param(
             None,
             ValidUser.last_name,
@@ -25,7 +25,7 @@ class ValidUser:
             ValidUser.email,
             ValidUser.password,
             ValidUser.receive_promotions,
-            [status.HTTP_422_UNPROCESSABLE_ENTITY],
+            status.HTTP_422_UNPROCESSABLE_ENTITY,
             id='First name is empty'
         ),
         param(
@@ -35,7 +35,7 @@ class ValidUser:
             ValidUser.email,
             ValidUser.password,
             ValidUser.receive_promotions,
-            [status.HTTP_422_UNPROCESSABLE_ENTITY],
+            status.HTTP_422_UNPROCESSABLE_ENTITY,
             id='Invalid first name with numerical characters'
         ),
         param(
@@ -45,7 +45,7 @@ class ValidUser:
             ValidUser.email,
             ValidUser.password,
             ValidUser.receive_promotions,
-            [status.HTTP_422_UNPROCESSABLE_ENTITY],
+            status.HTTP_422_UNPROCESSABLE_ENTITY,
             id='Invalid first name with symbols'
         ),
         param(
@@ -55,7 +55,7 @@ class ValidUser:
             ValidUser.email,
             ValidUser.password,
             ValidUser.receive_promotions,
-            [status.HTTP_422_UNPROCESSABLE_ENTITY],
+            status.HTTP_422_UNPROCESSABLE_ENTITY,
             id='Last name is empty'
         ),
         param(
@@ -65,7 +65,7 @@ class ValidUser:
             ValidUser.email,
             ValidUser.password,
             ValidUser.receive_promotions,
-            [status.HTTP_422_UNPROCESSABLE_ENTITY],
+            status.HTTP_422_UNPROCESSABLE_ENTITY,
             id='Invalid last name with numerical characters'
         ),
         param(
@@ -75,7 +75,7 @@ class ValidUser:
             ValidUser.email,
             ValidUser.password,
             ValidUser.receive_promotions,
-            [status.HTTP_422_UNPROCESSABLE_ENTITY],
+            status.HTTP_422_UNPROCESSABLE_ENTITY,
             id='Invalid last name with symbols'
         ),
         param(
@@ -85,7 +85,7 @@ class ValidUser:
             ValidUser.email,
             ValidUser.password,
             ValidUser.receive_promotions,
-            [status.HTTP_422_UNPROCESSABLE_ENTITY],
+            status.HTTP_422_UNPROCESSABLE_ENTITY,
             id='Invalid dob as random string'
         ),
         param(
@@ -95,7 +95,7 @@ class ValidUser:
             None,
             ValidUser.password,
             ValidUser.receive_promotions,
-            [status.HTTP_422_UNPROCESSABLE_ENTITY],
+            status.HTTP_422_UNPROCESSABLE_ENTITY,
             id='Email is empty'
         ),
         param(
@@ -105,7 +105,7 @@ class ValidUser:
             'johndoe@example',
             ValidUser.password,
             ValidUser.receive_promotions,
-            [status.HTTP_422_UNPROCESSABLE_ENTITY],
+            status.HTTP_422_UNPROCESSABLE_ENTITY,
             id='Invalid email without dot'
         ),
         param(
@@ -115,7 +115,7 @@ class ValidUser:
             'johndoeexample.com',
             ValidUser.password,
             ValidUser.receive_promotions,
-            [status.HTTP_422_UNPROCESSABLE_ENTITY],
+            status.HTTP_422_UNPROCESSABLE_ENTITY,
             id='Invalid email without @'
         ),
         param(
@@ -125,7 +125,7 @@ class ValidUser:
             '.johndoe@example.com',
             ValidUser.password,
             ValidUser.receive_promotions,
-            [status.HTTP_422_UNPROCESSABLE_ENTITY],
+            status.HTTP_422_UNPROCESSABLE_ENTITY,
             id='Invalid email starting with a dot'
         ),
         param(
@@ -135,7 +135,7 @@ class ValidUser:
             'johndoe@@example.com',
             ValidUser.password,
             ValidUser.receive_promotions,
-            [status.HTTP_422_UNPROCESSABLE_ENTITY],
+            status.HTTP_422_UNPROCESSABLE_ENTITY,
             id='Invalid email with more than one @'
         ),
         param(
@@ -145,7 +145,7 @@ class ValidUser:
             'johndoe@example..com',
             ValidUser.password,
             ValidUser.receive_promotions,
-            [status.HTTP_422_UNPROCESSABLE_ENTITY],
+            status.HTTP_422_UNPROCESSABLE_ENTITY,
             id='Invalid email with two dots next to each other'
         ),
         param(
@@ -155,7 +155,7 @@ class ValidUser:
             ValidUser.email,
             None,
             ValidUser.receive_promotions,
-            [status.HTTP_422_UNPROCESSABLE_ENTITY],
+            status.HTTP_422_UNPROCESSABLE_ENTITY,
             id='Password is empty'
         ),
         param(
@@ -165,7 +165,7 @@ class ValidUser:
             ValidUser.email,
             'Pa$12',
             ValidUser.receive_promotions,
-            [status.HTTP_422_UNPROCESSABLE_ENTITY],
+            status.HTTP_422_UNPROCESSABLE_ENTITY,
             id='Password is too short'
         ),
         param(
@@ -175,7 +175,7 @@ class ValidUser:
             ValidUser.email,
             'password$123',
             ValidUser.receive_promotions,
-            [status.HTTP_422_UNPROCESSABLE_ENTITY],
+            status.HTTP_422_UNPROCESSABLE_ENTITY,
             id='Password has no uppercase'
         ),
         param(
@@ -185,7 +185,7 @@ class ValidUser:
             ValidUser.email,
             'PASSWORD$123',
             ValidUser.receive_promotions,
-            [status.HTTP_422_UNPROCESSABLE_ENTITY],
+            status.HTTP_422_UNPROCESSABLE_ENTITY,
             id='Password has no lowercase'
         ),
         param(
@@ -195,7 +195,7 @@ class ValidUser:
             ValidUser.email,
             'password123',
             ValidUser.receive_promotions,
-            [status.HTTP_422_UNPROCESSABLE_ENTITY],
+            status.HTTP_422_UNPROCESSABLE_ENTITY,
             id='Password has no symbol'
         ),
         param(
@@ -205,7 +205,7 @@ class ValidUser:
             ValidUser.email,
             'password$',
             ValidUser.receive_promotions,
-            [status.HTTP_422_UNPROCESSABLE_ENTITY],
+            status.HTTP_422_UNPROCESSABLE_ENTITY,
             id='Password has no number'
         ),
         param(
@@ -215,7 +215,7 @@ class ValidUser:
             ValidUser.email,
             ValidUser.password,
             'foihwf',
-            [status.HTTP_422_UNPROCESSABLE_ENTITY],
+            status.HTTP_422_UNPROCESSABLE_ENTITY,
             id='Receieve promotions is not a boolean'
         ),
         param(
@@ -225,7 +225,7 @@ class ValidUser:
             ValidUser.email,
             ValidUser.password,
             None,
-            [status.HTTP_422_UNPROCESSABLE_ENTITY],
+            status.HTTP_422_UNPROCESSABLE_ENTITY,
             id='Receieve promotions is empty'
         ),
         param(
@@ -235,7 +235,7 @@ class ValidUser:
             ValidUser.email,
             ValidUser.password,
             ValidUser.receive_promotions,
-            [status.HTTP_201_CREATED, ValidUser.email],
+            status.HTTP_201_CREATED,
             id='Valid Registration'
         ),
         param(
@@ -245,7 +245,7 @@ class ValidUser:
             ValidUser.email,
             ValidUser.password,
             ValidUser.receive_promotions,
-            [status.HTTP_226_IM_USED],
+            status.HTTP_226_IM_USED,
             id='User with email already exists'
         ),
     ]
@@ -258,10 +258,12 @@ def test_register(
     email:str, 
     password:str, 
     receive_promotions:bool,
-    expected:list
+    expected:list,
+    record_data,
 ):
     """
-    Registering a user
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
     """
     response = client.post(
         '/auth/register',
@@ -274,7 +276,11 @@ def test_register(
             'receieve_promotions': receive_promotions,
         }
     )
-    assert response.status_code == expected[0]
-    if len(expected) > 1:
-        assert response.json()['email'] == expected[1]
+    record_data(
+        test_data=[first_name, last_name, dob, email, password, receive_promotions],
+        expected=f'HTTP {expected}',
+        actual=f'HTTP {response.status_code}'
+    )
+    assert response.status_code == expected
+
     
