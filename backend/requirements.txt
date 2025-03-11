@@ -6,5 +6,4 @@ pydantic-settings
 pytest
 pytest-csv
 pytest-order
-pytest-lazy-fixture
 pdoc3
