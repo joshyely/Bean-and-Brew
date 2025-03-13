@@ -1,5 +1,6 @@
 from fastapi import APIRouter
 from fastapi.responses import JSONResponse
+from fastapi.encoders import jsonable_encoder
 from ..dependancies import (
     TokenDep, 
     SessionDep
@@ -15,8 +16,9 @@ router = APIRouter(
 @router.get('/')
 def get_info(db: SessionDep, payload: TokenDep):
     user = userCrud.get_user_by_id(db, payload.sub)
-    return JSONResponse(
-        status_code=200, content={'user': {
+    json = jsonable_encoder({
+        'user': 
+        {
             'firstName': user.first_name,
             'lastName': user.last_name,
             'email': user.email,
@@ -24,3 +26,4 @@ def get_info(db: SessionDep, payload: TokenDep):
             'dateCreated': user.date_created,
         }
     })
+    return JSONResponse(status_code=200, content=json)
