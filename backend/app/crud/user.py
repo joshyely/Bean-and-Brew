@@ -4,7 +4,7 @@ from ..models import User
 from ..schemas.user import UserLogin, UserRegister, UserInDB
 from ..security import create_password_hash, verify_password
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
-def create_user(db: Session, user: UserRegister) -> User:
+def create_user(db: Session, user: UserRegister) -> User|None:
     """
     Creates a new user in the database.
 
@@ -14,7 +14,11 @@ def create_user(db: Session, user: UserRegister) -> User:
     
     Returns:
         User: User added
+
+    Returns 'None' if user with email already exists
     """
+    if get_user_by_email(db, user.email):
+        return None
 
     db_object = User(
         email=user.email,

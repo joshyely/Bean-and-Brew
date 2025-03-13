@@ -47,10 +47,10 @@ router = APIRouter(
     status_code=status.HTTP_201_CREATED,
 )
 def register_user(db:SessionDep, user: UserRegister):
-    user_db = get_user_by_email(db, user.email)
-    if user_db:
+    db_obj = create_user(db, user)
+    if not db_obj:
         raise HTTPException(status_code=status.HTTP_226_IM_USED, detail='User exists')
-    create_user(db, user)
+    
     return JSONResponse(
         status_code=status.HTTP_201_CREATED, content={'detail': 'User Registered'}
     )
