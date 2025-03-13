@@ -1,0 +1,528 @@
+Description of test,Test data to be used (if required),Expected result,Actual result,Comments
+"test_register[First name is empty]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","None, Doe, 2003-12-21, johndoe@example.com, Password$123, False",HTTP 422,HTTP 422,passed
+"test_register[Invalid first name with numerical characters]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John32, Doe, 2003-12-21, johndoe@example.com, Password$123, False",HTTP 422,HTTP 422,passed
+"test_register[Invalid first name with symbols]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John$, Doe, 2003-12-21, johndoe@example.com, Password$123, False",HTTP 422,HTTP 422,passed
+"test_register[Last name is empty]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, None, 2003-12-21, johndoe@example.com, Password$123, False",HTTP 422,HTTP 422,passed
+"test_register[Invalid last name with numerical characters]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe49, 2003-12-21, johndoe@example.com, Password$123, False",HTTP 422,HTTP 422,passed
+"test_register[Invalid last name with symbols]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe£, 2003-12-21, johndoe@example.com, Password$123, False",HTTP 422,HTTP 422,passed
+"test_register[Invalid dob as random string]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, odihwioh125, johndoe@example.com, Password$123, False",HTTP 422,HTTP 422,passed
+"test_register[Email is empty]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, None, Password$123, False",HTTP 422,HTTP 422,passed
+"test_register[Invalid email without dot]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, johndoe@example, Password$123, False",HTTP 422,HTTP 422,passed
+"test_register[Invalid email without @]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, johndoeexample.com, Password$123, False",HTTP 422,HTTP 422,passed
+"test_register[Invalid email starting with a dot]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, .johndoe@example.com, Password$123, False",HTTP 422,HTTP 422,passed
+"test_register[Invalid email with more than one @]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, johndoe@@example.com, Password$123, False",HTTP 422,HTTP 422,passed
+"test_register[Invalid email with two dots next to each other]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, johndoe@example..com, Password$123, False",HTTP 422,HTTP 422,passed
+"test_register[Password is empty]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, johndoe@example.com, None, False",HTTP 422,HTTP 422,passed
+"test_register[Password is too short]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, johndoe@example.com, Pa$12, False",HTTP 422,HTTP 422,passed
+"test_register[Password has no uppercase]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, johndoe@example.com, password$123, False",HTTP 422,HTTP 422,passed
+"test_register[Password has no lowercase]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, johndoe@example.com, PASSWORD$123, False",HTTP 422,HTTP 422,passed
+"test_register[Password has no symbol]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, johndoe@example.com, password123, False",HTTP 422,HTTP 422,passed
+"test_register[Password has no number]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, johndoe@example.com, password$, False",HTTP 422,HTTP 422,passed
+"test_register[Receieve promotions is not a boolean]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, johndoe@example.com, Password$123, foihwf",HTTP 422,HTTP 422,passed
+"test_register[Receieve promotions is empty]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, johndoe@example.com, Password$123, None",HTTP 422,HTTP 422,passed
+"test_register[Valid Registration]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, johndoe@example.com, Password$123, False",HTTP 201,HTTP 201,passed
+"test_register[User with email already exists]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, johndoe@example.com, Password$123, False",HTTP 226,HTTP 226,passed
+"test_get_info
+
+Location: tests/integration/user_test.py
+
+    Test API endpoint for getting user information using a valid JWT token
+    Endpoint: /user/
+    ","johndoe@example.com, Password$123, Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzQxODg4MjY5fQ.wyKIdmxZxa7myxtxKI91eKRfao_gRkKE_1ry9hZogZE",HTTP 200,HTTP 200,passed
+"test_get_info_no_token
+
+Location: tests/integration/user_test.py
+
+    Test API endpoint for getting user information with no token
+    Endpoint: /user/
+    ",,HTTP 401,HTTP 401,passed
+"test_get_info_invalid_token
+
+Location: tests/integration/user_test.py
+
+    Test API endpoint for getting user information with an invalid token
+    Endpoint: /user/
+    ",Bearer roigjr34553oigh,HTTP 401,HTTP 401,passed
+"test_create_user
+
+Location: tests/unit/crud/user_test.py
+
+    Test creating a new user through the crud.
+    ","memory db session, {'email': 'johndoe@example.com', 'password': 'Password$123', 'first_name': 'John', 'last_name': 'Doe', 'dob': datetime.date(2003, 12, 21), 'receieve_promotions': False}","type(result) == User 
+AND
+ result.email == johndoe@example.com","type(result) == <class 'app.models.user.User'> 
+AND
+ result.email == johndoe@example.com",passed
+"test_create_user_exists
+
+Location: tests/unit/crud/user_test.py
+
+    Test attemping to create a new user with an email that already exists.
+    ","memory db session, {'email': 'johndoe@example.com', 'password': 'Password$123', 'first_name': 'John', 'last_name': 'Doe', 'dob': datetime.date(2003, 12, 21), 'receieve_promotions': False}",IntegrityError,<app.models.user.User object at 0x78a421192e00>,passed
+"test_create_user_exists
+
+Location: tests/unit/crud/user_test.py
+
+    Test attemping to create a new user with an email that already exists.
+    ","memory db session, {'email': 'johndoe@example.com', 'password': 'Password$123', 'first_name': 'John', 'last_name': 'Doe', 'dob': datetime.date(2003, 12, 21), 'receieve_promotions': False}",IntegrityError,<app.models.user.User object at 0x78a421192e00>,"failed
+Errors:
+self = <sqlalchemy.engine.base.Connection object at 0x78a4211928c0>
+dialect = <sqlalchemy.dialects.sqlite.pysqlite.SQLiteDialect_pysqlite object at 0x78a4211af220>
+context = <sqlalchemy.dialects.sqlite.base.SQLiteExecutionContext object at 0x78a421192860>
+statement = <sqlalchemy.dialects.sqlite.base.SQLiteCompiler object at 0x78a4211927d0>
+parameters = [('johndoe@example.com', '$2b$12$zsqKtB3G1JUghmSqsMRf1.WA4.U/cVhzBIvtdyZXpAJS0iU8T1z16', 'John', 'Doe', '2003-12-21', 0, ...)]
+
+    def _exec_single_context(
+        self,
+        dialect: Dialect,
+        context: ExecutionContext,
+        statement: Union[str, Compiled],
+        parameters: Optional[_AnyMultiExecuteParams],
+    ) -> CursorResult[Any]:
+        """"""continue the _execute_context() method for a single DBAPI
+        cursor.execute() or cursor.executemany() call.
+    
+        """"""
+        if dialect.bind_typing is BindTyping.SETINPUTSIZES:
+            generic_setinputsizes = context._prepare_set_input_sizes()
+    
+            if generic_setinputsizes:
+                try:
+                    dialect.do_set_input_sizes(
+                        context.cursor, generic_setinputsizes, context
+                    )
+                except BaseException as e:
+                    self._handle_dbapi_exception(
+                        e, str(statement), parameters, None, context
+                    )
+    
+        cursor, str_statement, parameters = (
+            context.cursor,
+            context.statement,
+            context.parameters,
+        )
+    
+        effective_parameters: Optional[_AnyExecuteParams]
+    
+        if not context.executemany:
+            effective_parameters = parameters[0]
+        else:
+            effective_parameters = parameters
+    
+        if self._has_events or self.engine._has_events:
+            for fn in self.dispatch.before_cursor_execute:
+                str_statement, effective_parameters = fn(
+                    self,
+                    cursor,
+                    str_statement,
+                    effective_parameters,
+                    context,
+                    context.executemany,
+                )
+    
+        if self._echo:
+            self._log_info(str_statement)
+    
+            stats = context._get_cache_stats()
+    
+            if not self.engine.hide_parameters:
+                self._log_info(
+                    ""[%s] %r"",
+                    stats,
+                    sql_util._repr_params(
+                        effective_parameters,
+                        batches=10,
+                        ismulti=context.executemany,
+                    ),
+                )
+            else:
+                self._log_info(
+                    ""[%s] [SQL parameters hidden due to hide_parameters=True]"",
+                    stats,
+                )
+    
+        evt_handled: bool = False
+        try:
+            if context.execute_style is ExecuteStyle.EXECUTEMANY:
+                effective_parameters = cast(
+                    ""_CoreMultiExecuteParams"", effective_parameters
+                )
+                if self.dialect._has_events:
+                    for fn in self.dialect.dispatch.do_executemany:
+                        if fn(
+                            cursor,
+                            str_statement,
+                            effective_parameters,
+                            context,
+                        ):
+                            evt_handled = True
+                            break
+                if not evt_handled:
+                    self.dialect.do_executemany(
+                        cursor,
+                        str_statement,
+                        effective_parameters,
+                        context,
+                    )
+            elif not effective_parameters and context.no_parameters:
+                if self.dialect._has_events:
+                    for fn in self.dialect.dispatch.do_execute_no_params:
+                        if fn(cursor, str_statement, context):
+                            evt_handled = True
+                            break
+                if not evt_handled:
+                    self.dialect.do_execute_no_params(
+                        cursor, str_statement, context
+                    )
+            else:
+                effective_parameters = cast(
+                    ""_CoreSingleExecuteParams"", effective_parameters
+                )
+                if self.dialect._has_events:
+                    for fn in self.dialect.dispatch.do_execute:
+                        if fn(
+                            cursor,
+                            str_statement,
+                            effective_parameters,
+                            context,
+                        ):
+                            evt_handled = True
+                            break
+                if not evt_handled:
+>                   self.dialect.do_execute(
+                        cursor, str_statement, effective_parameters, context
+                    )
+
+/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py:1964: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <sqlalchemy.dialects.sqlite.pysqlite.SQLiteDialect_pysqlite object at 0x78a4211af220>
+cursor = <sqlite3.Cursor object at 0x78a420dbb940>
+statement = 'INSERT INTO users (email, password_hash, first_name, last_name, dob, receive_promotions, date_created) VALUES (?, ?, ?, ?, ?, ?, ?)'
+parameters = ('johndoe@example.com', '$2b$12$zsqKtB3G1JUghmSqsMRf1.WA4.U/cVhzBIvtdyZXpAJS0iU8T1z16', 'John', 'Doe', '2003-12-21', 0, ...)
+context = <sqlalchemy.dialects.sqlite.base.SQLiteExecutionContext object at 0x78a421192860>
+
+    def do_execute(self, cursor, statement, parameters, context=None):
+>       cursor.execute(statement, parameters)
+E       sqlite3.IntegrityError: UNIQUE constraint failed: users.email
+
+/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/default.py:942: IntegrityError
+
+The above exception was the direct cause of the following exception:
+
+    @pytest.fixture
+    def temp_db():
+        """"""
+        Create a new session from an in memory sqlite database to be used for testing the CRUD.
+    
+        Yields:
+            _Generator[sqlalchemy.orm.Session, None, None]_: _Session Generator Object_
+        """"""
+>       with test_db.Session.begin() as session:
+
+tests/unit/crud/conftest.py:16: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/local/lib/python3.10/contextlib.py:142: in __exit__
+    next(self.gen)
+/usr/local/lib/python3.10/site-packages/sqlalchemy/orm/session.py:1816: in _maker_context_manager
+    with self.begin():
+/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/util.py:147: in __exit__
+    with util.safe_reraise():
+/usr/local/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py:146: in __exit__
+    raise exc_value.with_traceback(exc_tb)
+/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/util.py:145: in __exit__
+    self.commit()
+/usr/local/lib/python3.10/site-packages/sqlalchemy/orm/state_changes.py:139: in _go
+    ret_value = fn(self, *arg, **kw)
+/usr/local/lib/python3.10/site-packages/sqlalchemy/orm/session.py:1313: in commit
+    self._prepare_impl()
+/usr/local/lib/python3.10/site-packages/sqlalchemy/orm/state_changes.py:139: in _go
+    ret_value = fn(self, *arg, **kw)
+/usr/local/lib/python3.10/site-packages/sqlalchemy/orm/session.py:1288: in _prepare_impl
+    self.session.flush()
+/usr/local/lib/python3.10/site-packages/sqlalchemy/orm/session.py:4353: in flush
+    self._flush(objects)
+/usr/local/lib/python3.10/site-packages/sqlalchemy/orm/session.py:4488: in _flush
+    with util.safe_reraise():
+/usr/local/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py:146: in __exit__
+    raise exc_value.with_traceback(exc_tb)
+/usr/local/lib/python3.10/site-packages/sqlalchemy/orm/session.py:4449: in _flush
+    flush_context.execute()
+/usr/local/lib/python3.10/site-packages/sqlalchemy/orm/unitofwork.py:466: in execute
+    rec.execute(self)
+/usr/local/lib/python3.10/site-packages/sqlalchemy/orm/unitofwork.py:642: in execute
+    util.preloaded.orm_persistence.save_obj(
+/usr/local/lib/python3.10/site-packages/sqlalchemy/orm/persistence.py:93: in save_obj
+    _emit_insert_statements(
+/usr/local/lib/python3.10/site-packages/sqlalchemy/orm/persistence.py:1233: in _emit_insert_statements
+    result = connection.execute(
+/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py:1416: in execute
+    return meth(
+/usr/local/lib/python3.10/site-packages/sqlalchemy/sql/elements.py:516: in _execute_on_connection
+    return connection._execute_clauseelement(
+/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py:1638: in _execute_clauseelement
+    ret = self._execute_context(
+/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py:1843: in _execute_context
+    return self._exec_single_context(
+/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py:1983: in _exec_single_context
+    self._handle_dbapi_exception(
+/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py:2352: in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py:1964: in _exec_single_context
+    self.dialect.do_execute(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <sqlalchemy.dialects.sqlite.pysqlite.SQLiteDialect_pysqlite object at 0x78a4211af220>
+cursor = <sqlite3.Cursor object at 0x78a420dbb940>
+statement = 'INSERT INTO users (email, password_hash, first_name, last_name, dob, receive_promotions, date_created) VALUES (?, ?, ?, ?, ?, ?, ?)'
+parameters = ('johndoe@example.com', '$2b$12$zsqKtB3G1JUghmSqsMRf1.WA4.U/cVhzBIvtdyZXpAJS0iU8T1z16', 'John', 'Doe', '2003-12-21', 0, ...)
+context = <sqlalchemy.dialects.sqlite.base.SQLiteExecutionContext object at 0x78a421192860>
+
+    def do_execute(self, cursor, statement, parameters, context=None):
+>       cursor.execute(statement, parameters)
+E       sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: users.email
+E       [SQL: INSERT INTO users (email, password_hash, first_name, last_name, dob, receive_promotions, date_created) VALUES (?, ?, ?, ?, ?, ?, ?)]
+E       [parameters: ('johndoe@example.com', '$2b$12$zsqKtB3G1JUghmSqsMRf1.WA4.U/cVhzBIvtdyZXpAJS0iU8T1z16', 'John', 'Doe', '2003-12-21', 0, '2025-03-13')]
+E       (Background on this error at: https://sqlalche.me/e/20/gkpj)
+
+/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/default.py:942: IntegrityError"
+"test_get_user_by_id
+
+Location: tests/unit/crud/user_test.py
+
+    Test getting a user from the crud using their id.
+    ","memory db session, user id: 1","type(result) == User 
+AND
+ result.email == johndoe@example.com","type(result) == <class 'app.models.user.User'> 
+AND
+ result.email == johndoe@example.com",passed
+"test_get_user_by_id_invalid[User with ID does not exist]
+
+Location: tests/unit/crud/user_test.py
+
+    Test to ensure the crud returns None when an invalid user id is entered when trying to retrieve a user.
+    ","memory db session, invalid user id: 32",None,None,passed
+"test_get_user_by_id_invalid[String is passed instead of integer]
+
+Location: tests/unit/crud/user_test.py
+
+    Test to ensure the crud returns None when an invalid user id is entered when trying to retrieve a user.
+    ","memory db session, invalid user id: string",None,None,passed
+"test_get_user_by_email
+
+Location: tests/unit/crud/user_test.py
+
+    Test getting a user from the crud using their email.
+    ","memory db session, email: johndoe@example.com","type(result) == User 
+AND
+ result.email == johndoe@example.com","type(result) == <class 'app.models.user.User'> 
+AND
+ result.email == johndoe@example.com",passed
+"test_get_user_by_email_invalid[User with email does not exist]
+
+Location: tests/unit/crud/user_test.py
+
+    Test to ensure the crud returns None when an invalid user email is entered when trying to retrieve a user.
+    ","memory db session, invalid email: random_email@hotmail.com",None,None,passed
+"test_get_user_by_email_invalid[Wrong variable type for email is passed.]
+
+Location: tests/unit/crud/user_test.py
+
+    Test to ensure the crud returns None when an invalid user email is entered when trying to retrieve a user.
+    ","memory db session, invalid email: 12",None,None,passed
+"test_authenticate_user
+
+Location: tests/unit/crud/user_test.py
+
+    Test authenticating a user with the correct credentials.
+    ","memory db session, email: johndoe@example.com, password: Password$123","type(result) == User 
+AND
+ result.email == johndoe@example.com","type(result) == <class 'app.models.user.User'> 
+AND
+ result.email == johndoe@example.com",passed
+"test_authenticate_invalid[Correct Email, Incorrect Password]
+
+Location: tests/unit/crud/user_test.py
+
+    Test the user authentication function with invalid credentials.
+    ","memory db session, email: johndoe@example.com, password: Wrongpassword£124",,,passed
+"test_authenticate_invalid[Correct Password, Incorrect Email]
+
+Location: tests/unit/crud/user_test.py
+
+    Test the user authentication function with invalid credentials.
+    ","memory db session, email: wrongemail@example.com, password: Password$123",,,passed
+"test_authenticate_invalid[Incorrect Email and Password]
+
+Location: tests/unit/crud/user_test.py
+
+    Test the user authentication function with invalid credentials.
+    ","memory db session, email: wrongemail@example.com, password: Wrongpassword£124",,,passed
+"test_create_logger[Creating a root logger with no name or level set]
+
+Location: tests/unit/log_test.py
+
+    Test creating a new logger.
+    ","None, None",<RootLogger root (DEBUG)>,<RootLogger root (DEBUG)>,passed
+"test_create_logger[Creating a logger named ""test""]
+
+Location: tests/unit/log_test.py
+
+    Test creating a new logger.
+    ","test, None",<Logger test (DEBUG)>,<Logger test (DEBUG)>,passed
+"test_create_logger[Creating a logger named ""test"" with the level set to INFO]
+
+Location: tests/unit/log_test.py
+
+    Test creating a new logger.
+    ","test, INFO",<Logger test (INFO)>,<Logger test (INFO)>,passed
+"test_create_logger[Creating a logger named ""test"" with the level set to WARNING]
+
+Location: tests/unit/log_test.py
+
+    Test creating a new logger.
+    ","test, WARNING",<Logger test (WARNING)>,<Logger test (WARNING)>,passed
+"test_create_logger[Creating a logger named ""test"" with the level set to ERROR]
+
+Location: tests/unit/log_test.py
+
+    Test creating a new logger.
+    ","test, ERROR",<Logger test (ERROR)>,<Logger test (ERROR)>,passed

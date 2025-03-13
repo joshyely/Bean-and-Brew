@@ -1,0 +1,676 @@
+Description of test,Test data to be used (if required),Expected result,Actual result,Comments
+"test_register[First name is empty]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","None, Doe, 2003-12-21, johndoe@example.com, Password$123, False",HTTP 422,HTTP 422,passed
+"test_register[Invalid first name with numerical characters]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John32, Doe, 2003-12-21, johndoe@example.com, Password$123, False",HTTP 422,HTTP 422,passed
+"test_register[Invalid first name with symbols]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John$, Doe, 2003-12-21, johndoe@example.com, Password$123, False",HTTP 422,HTTP 422,passed
+"test_register[Last name is empty]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, None, 2003-12-21, johndoe@example.com, Password$123, False",HTTP 422,HTTP 422,passed
+"test_register[Invalid last name with numerical characters]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe49, 2003-12-21, johndoe@example.com, Password$123, False",HTTP 422,HTTP 422,passed
+"test_register[Invalid last name with symbols]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe£, 2003-12-21, johndoe@example.com, Password$123, False",HTTP 422,HTTP 422,passed
+"test_register[Invalid dob as random string]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, odihwioh125, johndoe@example.com, Password$123, False",HTTP 422,HTTP 422,passed
+"test_register[Email is empty]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, None, Password$123, False",HTTP 422,HTTP 422,passed
+"test_register[Invalid email without dot]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, johndoe@example, Password$123, False",HTTP 422,HTTP 422,passed
+"test_register[Invalid email without @]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, johndoeexample.com, Password$123, False",HTTP 422,HTTP 422,passed
+"test_register[Invalid email starting with a dot]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, .johndoe@example.com, Password$123, False",HTTP 422,HTTP 422,passed
+"test_register[Invalid email with more than one @]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, johndoe@@example.com, Password$123, False",HTTP 422,HTTP 422,passed
+"test_register[Invalid email with two dots next to each other]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, johndoe@example..com, Password$123, False",HTTP 422,HTTP 422,passed
+"test_register[Password is empty]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, johndoe@example.com, None, False",HTTP 422,HTTP 422,passed
+"test_register[Password is too short]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, johndoe@example.com, Pa$12, False",HTTP 422,HTTP 422,passed
+"test_register[Password has no uppercase]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, johndoe@example.com, password$123, False",HTTP 422,HTTP 422,passed
+"test_register[Password has no lowercase]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, johndoe@example.com, PASSWORD$123, False",HTTP 422,HTTP 422,passed
+"test_register[Password has no symbol]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, johndoe@example.com, password123, False",HTTP 422,HTTP 422,passed
+"test_register[Password has no number]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, johndoe@example.com, password$, False",HTTP 422,HTTP 422,passed
+"test_register[Receieve promotions is not a boolean]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, johndoe@example.com, Password$123, foihwf",HTTP 422,HTTP 422,passed
+"test_register[Receieve promotions is empty]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, johndoe@example.com, Password$123, None",HTTP 422,HTTP 422,passed
+"test_register[Valid Registration]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, johndoe@example.com, Password$123, False",HTTP 201,HTTP 201,passed
+"test_register[User with email already exists]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","John, Doe, 2003-12-21, johndoe@example.com, Password$123, False",HTTP 226,HTTP 226,passed
+"test_get_info
+
+Location: tests/integration/user_test.py
+
+    Test API endpoint for getting user information using a valid JWT token
+    Endpoint: /user/
+    ",,,,"failed
+Errors:
+client = <starlette.testclient.TestClient object at 0x79ffc72d1720>, valid_email = 'johndoe@example.com'
+valid_password = 'Password$123'
+token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzQxODgyNjM2fQ.yUxmxM6h2W58eKNLV992SOMURLCedk7Uj7ZjGnSKx9s'
+record_data = <function record_data.<locals>.func at 0x79ffc8d9a710>
+logger = <function logger.<locals>.func at 0x79ffc8d99e10>
+
+    def test_get_info(client, valid_email, valid_password, token, record_data, logger):
+        """"""
+        Test API endpoint for getting user information using a valid JWT token
+        Endpoint: /user/
+        """"""
+        # # Get JWT token from login endpoint
+        # login = client.post('/auth/login/', data={'username': valid_email, 'password': valid_password})
+        # token = login.json().get('access_token')
+        # logger(f'Login response code: {login.status_code}')
+    
+        # Test user endpoint with valid token
+>       response = client.get('/user/', headers={'Authorization': token})
+
+tests/integration/user_test.py:18: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/local/lib/python3.10/site-packages/starlette/testclient.py:465: in get
+    return super().get(
+/usr/local/lib/python3.10/site-packages/httpx/_client.py:1053: in get
+    return self.request(
+/usr/local/lib/python3.10/site-packages/starlette/testclient.py:437: in request
+    return super().request(
+/usr/local/lib/python3.10/site-packages/httpx/_client.py:825: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+/usr/local/lib/python3.10/site-packages/httpx/_client.py:914: in send
+    response = self._send_handling_auth(
+/usr/local/lib/python3.10/site-packages/httpx/_client.py:942: in _send_handling_auth
+    response = self._send_handling_redirects(
+/usr/local/lib/python3.10/site-packages/httpx/_client.py:979: in _send_handling_redirects
+    response = self._send_single_request(request)
+/usr/local/lib/python3.10/site-packages/httpx/_client.py:1014: in _send_single_request
+    response = transport.handle_request(request)
+/usr/local/lib/python3.10/site-packages/starlette/testclient.py:340: in handle_request
+    raise exc
+/usr/local/lib/python3.10/site-packages/starlette/testclient.py:337: in handle_request
+    portal.call(self.app, scope, receive, send)
+/usr/local/lib/python3.10/site-packages/anyio/from_thread.py:290: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+/usr/local/lib/python3.10/concurrent/futures/_base.py:458: in result
+    return self.__get_result()
+/usr/local/lib/python3.10/concurrent/futures/_base.py:403: in __get_result
+    raise self._exception
+/usr/local/lib/python3.10/site-packages/anyio/from_thread.py:221: in _call_func
+    retval = await retval_or_awaitable
+/usr/local/lib/python3.10/site-packages/fastapi/applications.py:1054: in __call__
+    await super().__call__(scope, receive, send)
+/usr/local/lib/python3.10/site-packages/starlette/applications.py:112: in __call__
+    await self.middleware_stack(scope, receive, send)
+/usr/local/lib/python3.10/site-packages/starlette/middleware/errors.py:187: in __call__
+    raise exc
+/usr/local/lib/python3.10/site-packages/starlette/middleware/errors.py:165: in __call__
+    await self.app(scope, receive, _send)
+/usr/local/lib/python3.10/site-packages/starlette/middleware/cors.py:85: in __call__
+    await self.app(scope, receive, send)
+/usr/local/lib/python3.10/site-packages/starlette/middleware/exceptions.py:62: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py:53: in wrapped_app
+    raise exc
+/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+/usr/local/lib/python3.10/site-packages/starlette/routing.py:714: in __call__
+    await self.middleware_stack(scope, receive, send)
+/usr/local/lib/python3.10/site-packages/starlette/routing.py:734: in app
+    await route.handle(scope, receive, send)
+/usr/local/lib/python3.10/site-packages/starlette/routing.py:288: in handle
+    await self.app(scope, receive, send)
+/usr/local/lib/python3.10/site-packages/starlette/routing.py:76: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py:53: in wrapped_app
+    raise exc
+/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+/usr/local/lib/python3.10/site-packages/starlette/routing.py:73: in app
+    response = await f(request)
+/usr/local/lib/python3.10/site-packages/fastapi/routing.py:301: in app
+    raw_response = await run_endpoint_function(
+/usr/local/lib/python3.10/site-packages/fastapi/routing.py:214: in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+/usr/local/lib/python3.10/site-packages/starlette/concurrency.py:37: in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+/usr/local/lib/python3.10/site-packages/anyio/to_thread.py:56: in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+/usr/local/lib/python3.10/site-packages/anyio/_backends/_asyncio.py:2461: in run_sync_in_worker_thread
+    return await future
+/usr/local/lib/python3.10/site-packages/anyio/_backends/_asyncio.py:962: in run
+    result = context.run(func, *args)
+app/api/routes/user.py:18: in get_info
+    return JSONResponse(
+/usr/local/lib/python3.10/site-packages/starlette/responses.py:182: in __init__
+    super().__init__(content, status_code, headers, media_type, background)
+/usr/local/lib/python3.10/site-packages/starlette/responses.py:45: in __init__
+    self.body = self.render(content)
+/usr/local/lib/python3.10/site-packages/starlette/responses.py:185: in render
+    return json.dumps(
+/usr/local/lib/python3.10/json/__init__.py:238: in dumps
+    **kw).encode(obj)
+/usr/local/lib/python3.10/json/encoder.py:199: in encode
+    chunks = self.iterencode(o, _one_shot=True)
+/usr/local/lib/python3.10/json/encoder.py:257: in iterencode
+    return _iterencode(o, 0)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <json.encoder.JSONEncoder object at 0x79ffc72b4c10>, o = datetime.date(2003, 12, 21)
+
+    def default(self, o):
+        """"""Implement this method in a subclass such that it returns
+        a serializable object for ``o``, or calls the base implementation
+        (to raise a ``TypeError``).
+    
+        For example, to support arbitrary iterators, you could
+        implement default like this::
+    
+            def default(self, o):
+                try:
+                    iterable = iter(o)
+                except TypeError:
+                    pass
+                else:
+                    return list(iterable)
+                # Let the base class default method raise the TypeError
+                return JSONEncoder.default(self, o)
+    
+        """"""
+>       raise TypeError(f'Object of type {o.__class__.__name__} '
+                        f'is not JSON serializable')
+E       TypeError: Object of type date is not JSON serializable
+
+/usr/local/lib/python3.10/json/encoder.py:179: TypeError"
+"test_get_info_no_token
+
+Location: tests/integration/user_test.py
+
+    Test API endpoint for getting user information with no token
+    Endpoint: /user/
+    ",,HTTP 401,HTTP 401,passed
+"test_get_info_invalid_token
+
+Location: tests/integration/user_test.py
+
+    Test API endpoint for getting user information with an invalid token
+    Endpoint: /user/
+    ",Bearer roigjr34553oigh,HTTP 401,HTTP 401,passed
+"test_create_user
+
+Location: tests/unit/crud/user_test.py
+
+    Test creating a new user through the crud.
+    ","memory db session, {'email': 'johndoe@example.com', 'password': 'Password$123', 'first_name': 'John', 'last_name': 'Doe', 'dob': datetime.date(2003, 12, 21), 'receieve_promotions': False}","type(result) == User 
+AND
+ result.email == johndoe@example.com","type(result) == <class 'app.models.user.User'> 
+AND
+ result.email == johndoe@example.com",passed
+"test_create_user_exists
+
+Location: tests/unit/crud/user_test.py
+
+    Test attemping to create a new user with an email that already exists.
+    ",,,,"failed
+Errors:
+temp_db = <sqlalchemy.orm.session.Session object at 0x79ffc5280b20>
+valid_user = {'dob': datetime.date(2003, 12, 21), 'email': 'johndoe@example.com', 'first_name': 'John', 'last_name': 'Doe', ...}
+record_data = <function record_data.<locals>.func at 0x79ffc8d9b520>
+
+    def test_create_user_exists(temp_db, valid_user:dict, record_data):
+        """"""
+        Test attemping to create a new user with an email that already exists.
+        """"""
+        valid_user.pop('id')
+>       with pytest.raises(Exception):
+E       Failed: DID NOT RAISE <class 'Exception'>
+
+tests/unit/crud/user_test.py:44: Failed"
+"test_create_user_exists
+
+Location: tests/unit/crud/user_test.py
+
+    Test attemping to create a new user with an email that already exists.
+    ",,,,"failed
+Errors:
+self = <sqlalchemy.engine.base.Connection object at 0x79ffc5602890>
+dialect = <sqlalchemy.dialects.sqlite.pysqlite.SQLiteDialect_pysqlite object at 0x79ffc72d31f0>
+context = <sqlalchemy.dialects.sqlite.base.SQLiteExecutionContext object at 0x79ffc5602b00>
+statement = <sqlalchemy.dialects.sqlite.base.SQLiteCompiler object at 0x79ffc5280f70>
+parameters = [('johndoe@example.com', '$2b$12$bZerAdBhHNYC7RYScKwmJe8U6XV0drDlnwGVcRPX0RvkXLwsljn8C', 'John', 'Doe', '2003-12-21', 0, ...)]
+
+    def _exec_single_context(
+        self,
+        dialect: Dialect,
+        context: ExecutionContext,
+        statement: Union[str, Compiled],
+        parameters: Optional[_AnyMultiExecuteParams],
+    ) -> CursorResult[Any]:
+        """"""continue the _execute_context() method for a single DBAPI
+        cursor.execute() or cursor.executemany() call.
+    
+        """"""
+        if dialect.bind_typing is BindTyping.SETINPUTSIZES:
+            generic_setinputsizes = context._prepare_set_input_sizes()
+    
+            if generic_setinputsizes:
+                try:
+                    dialect.do_set_input_sizes(
+                        context.cursor, generic_setinputsizes, context
+                    )
+                except BaseException as e:
+                    self._handle_dbapi_exception(
+                        e, str(statement), parameters, None, context
+                    )
+    
+        cursor, str_statement, parameters = (
+            context.cursor,
+            context.statement,
+            context.parameters,
+        )
+    
+        effective_parameters: Optional[_AnyExecuteParams]
+    
+        if not context.executemany:
+            effective_parameters = parameters[0]
+        else:
+            effective_parameters = parameters
+    
+        if self._has_events or self.engine._has_events:
+            for fn in self.dispatch.before_cursor_execute:
+                str_statement, effective_parameters = fn(
+                    self,
+                    cursor,
+                    str_statement,
+                    effective_parameters,
+                    context,
+                    context.executemany,
+                )
+    
+        if self._echo:
+            self._log_info(str_statement)
+    
+            stats = context._get_cache_stats()
+    
+            if not self.engine.hide_parameters:
+                self._log_info(
+                    ""[%s] %r"",
+                    stats,
+                    sql_util._repr_params(
+                        effective_parameters,
+                        batches=10,
+                        ismulti=context.executemany,
+                    ),
+                )
+            else:
+                self._log_info(
+                    ""[%s] [SQL parameters hidden due to hide_parameters=True]"",
+                    stats,
+                )
+    
+        evt_handled: bool = False
+        try:
+            if context.execute_style is ExecuteStyle.EXECUTEMANY:
+                effective_parameters = cast(
+                    ""_CoreMultiExecuteParams"", effective_parameters
+                )
+                if self.dialect._has_events:
+                    for fn in self.dialect.dispatch.do_executemany:
+                        if fn(
+                            cursor,
+                            str_statement,
+                            effective_parameters,
+                            context,
+                        ):
+                            evt_handled = True
+                            break
+                if not evt_handled:
+                    self.dialect.do_executemany(
+                        cursor,
+                        str_statement,
+                        effective_parameters,
+                        context,
+                    )
+            elif not effective_parameters and context.no_parameters:
+                if self.dialect._has_events:
+                    for fn in self.dialect.dispatch.do_execute_no_params:
+                        if fn(cursor, str_statement, context):
+                            evt_handled = True
+                            break
+                if not evt_handled:
+                    self.dialect.do_execute_no_params(
+                        cursor, str_statement, context
+                    )
+            else:
+                effective_parameters = cast(
+                    ""_CoreSingleExecuteParams"", effective_parameters
+                )
+                if self.dialect._has_events:
+                    for fn in self.dialect.dispatch.do_execute:
+                        if fn(
+                            cursor,
+                            str_statement,
+                            effective_parameters,
+                            context,
+                        ):
+                            evt_handled = True
+                            break
+                if not evt_handled:
+>                   self.dialect.do_execute(
+                        cursor, str_statement, effective_parameters, context
+                    )
+
+/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py:1964: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <sqlalchemy.dialects.sqlite.pysqlite.SQLiteDialect_pysqlite object at 0x79ffc72d31f0>
+cursor = <sqlite3.Cursor object at 0x79ffc53f9840>
+statement = 'INSERT INTO users (email, password_hash, first_name, last_name, dob, receive_promotions, date_created) VALUES (?, ?, ?, ?, ?, ?, ?)'
+parameters = ('johndoe@example.com', '$2b$12$bZerAdBhHNYC7RYScKwmJe8U6XV0drDlnwGVcRPX0RvkXLwsljn8C', 'John', 'Doe', '2003-12-21', 0, ...)
+context = <sqlalchemy.dialects.sqlite.base.SQLiteExecutionContext object at 0x79ffc5602b00>
+
+    def do_execute(self, cursor, statement, parameters, context=None):
+>       cursor.execute(statement, parameters)
+E       sqlite3.IntegrityError: UNIQUE constraint failed: users.email
+
+/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/default.py:942: IntegrityError
+
+The above exception was the direct cause of the following exception:
+
+    @pytest.fixture
+    def temp_db():
+        """"""
+        Create a new session from an in memory sqlite database to be used for testing the CRUD.
+    
+        Yields:
+            _Generator[sqlalchemy.orm.Session, None, None]_: _Session Generator Object_
+        """"""
+>       with test_db.Session.begin() as session:
+
+tests/unit/crud/conftest.py:16: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/local/lib/python3.10/contextlib.py:142: in __exit__
+    next(self.gen)
+/usr/local/lib/python3.10/site-packages/sqlalchemy/orm/session.py:1816: in _maker_context_manager
+    with self.begin():
+/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/util.py:147: in __exit__
+    with util.safe_reraise():
+/usr/local/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py:146: in __exit__
+    raise exc_value.with_traceback(exc_tb)
+/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/util.py:145: in __exit__
+    self.commit()
+/usr/local/lib/python3.10/site-packages/sqlalchemy/orm/state_changes.py:139: in _go
+    ret_value = fn(self, *arg, **kw)
+/usr/local/lib/python3.10/site-packages/sqlalchemy/orm/session.py:1313: in commit
+    self._prepare_impl()
+/usr/local/lib/python3.10/site-packages/sqlalchemy/orm/state_changes.py:139: in _go
+    ret_value = fn(self, *arg, **kw)
+/usr/local/lib/python3.10/site-packages/sqlalchemy/orm/session.py:1288: in _prepare_impl
+    self.session.flush()
+/usr/local/lib/python3.10/site-packages/sqlalchemy/orm/session.py:4353: in flush
+    self._flush(objects)
+/usr/local/lib/python3.10/site-packages/sqlalchemy/orm/session.py:4488: in _flush
+    with util.safe_reraise():
+/usr/local/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py:146: in __exit__
+    raise exc_value.with_traceback(exc_tb)
+/usr/local/lib/python3.10/site-packages/sqlalchemy/orm/session.py:4449: in _flush
+    flush_context.execute()
+/usr/local/lib/python3.10/site-packages/sqlalchemy/orm/unitofwork.py:466: in execute
+    rec.execute(self)
+/usr/local/lib/python3.10/site-packages/sqlalchemy/orm/unitofwork.py:642: in execute
+    util.preloaded.orm_persistence.save_obj(
+/usr/local/lib/python3.10/site-packages/sqlalchemy/orm/persistence.py:93: in save_obj
+    _emit_insert_statements(
+/usr/local/lib/python3.10/site-packages/sqlalchemy/orm/persistence.py:1233: in _emit_insert_statements
+    result = connection.execute(
+/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py:1416: in execute
+    return meth(
+/usr/local/lib/python3.10/site-packages/sqlalchemy/sql/elements.py:516: in _execute_on_connection
+    return connection._execute_clauseelement(
+/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py:1638: in _execute_clauseelement
+    ret = self._execute_context(
+/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py:1843: in _execute_context
+    return self._exec_single_context(
+/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py:1983: in _exec_single_context
+    self._handle_dbapi_exception(
+/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py:2352: in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py:1964: in _exec_single_context
+    self.dialect.do_execute(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <sqlalchemy.dialects.sqlite.pysqlite.SQLiteDialect_pysqlite object at 0x79ffc72d31f0>
+cursor = <sqlite3.Cursor object at 0x79ffc53f9840>
+statement = 'INSERT INTO users (email, password_hash, first_name, last_name, dob, receive_promotions, date_created) VALUES (?, ?, ?, ?, ?, ?, ?)'
+parameters = ('johndoe@example.com', '$2b$12$bZerAdBhHNYC7RYScKwmJe8U6XV0drDlnwGVcRPX0RvkXLwsljn8C', 'John', 'Doe', '2003-12-21', 0, ...)
+context = <sqlalchemy.dialects.sqlite.base.SQLiteExecutionContext object at 0x79ffc5602b00>
+
+    def do_execute(self, cursor, statement, parameters, context=None):
+>       cursor.execute(statement, parameters)
+E       sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: users.email
+E       [SQL: INSERT INTO users (email, password_hash, first_name, last_name, dob, receive_promotions, date_created) VALUES (?, ?, ?, ?, ?, ?, ?)]
+E       [parameters: ('johndoe@example.com', '$2b$12$bZerAdBhHNYC7RYScKwmJe8U6XV0drDlnwGVcRPX0RvkXLwsljn8C', 'John', 'Doe', '2003-12-21', 0, '2025-03-13')]
+E       (Background on this error at: https://sqlalche.me/e/20/gkpj)
+
+/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/default.py:942: IntegrityError"
+"test_get_user_by_id
+
+Location: tests/unit/crud/user_test.py
+
+    Test getting a user from the crud using their id.
+    ","memory db session, user id: 1","type(result) == User 
+AND
+ result.email == johndoe@example.com","type(result) == <class 'app.models.user.User'> 
+AND
+ result.email == johndoe@example.com",passed
+"test_get_user_by_id_invalid[User with ID does not exist]
+
+Location: tests/unit/crud/user_test.py
+
+    Test to ensure the crud returns None when an invalid user id is entered when trying to retrieve a user.
+    ","memory db session, invalid user id: 32",None,None,passed
+"test_get_user_by_id_invalid[String is passed instead of integer]
+
+Location: tests/unit/crud/user_test.py
+
+    Test to ensure the crud returns None when an invalid user id is entered when trying to retrieve a user.
+    ","memory db session, invalid user id: string",None,None,passed
+"test_get_user_by_email
+
+Location: tests/unit/crud/user_test.py
+
+    Test getting a user from the crud using their email.
+    ","memory db session, email: johndoe@example.com","type(result) == User 
+AND
+ result.email == johndoe@example.com","type(result) == <class 'app.models.user.User'> 
+AND
+ result.email == johndoe@example.com",passed
+"test_get_user_by_email_invalid[User with email does not exist]
+
+Location: tests/unit/crud/user_test.py
+
+    Test to ensure the crud returns None when an invalid user email is entered when trying to retrieve a user.
+    ","memory db session, invalid email: random_email@hotmail.com",None,None,passed
+"test_get_user_by_email_invalid[Wrong variable type for email is passed.]
+
+Location: tests/unit/crud/user_test.py
+
+    Test to ensure the crud returns None when an invalid user email is entered when trying to retrieve a user.
+    ","memory db session, invalid email: 12",None,None,passed
+"test_authenticate_user
+
+Location: tests/unit/crud/user_test.py
+
+    Test authenticating a user with the correct credentials.
+    ","memory db session, email: johndoe@example.com, password: Password$123","type(result) == User 
+AND
+ result.email == johndoe@example.com","type(result) == <class 'app.models.user.User'> 
+AND
+ result.email == johndoe@example.com",passed
+"test_authenticate_invalid[Correct Email, Incorrect Password]
+
+Location: tests/unit/crud/user_test.py
+
+    Test the user authentication function with invalid credentials.
+    ","memory db session, email: johndoe@example.com, password: Wrongpassword£124",,,passed
+"test_authenticate_invalid[Correct Password, Incorrect Email]
+
+Location: tests/unit/crud/user_test.py
+
+    Test the user authentication function with invalid credentials.
+    ","memory db session, email: wrongemail@example.com, password: Password$123",,,passed
+"test_authenticate_invalid[Incorrect Email and Password]
+
+Location: tests/unit/crud/user_test.py
+
+    Test the user authentication function with invalid credentials.
+    ","memory db session, email: wrongemail@example.com, password: Wrongpassword£124",,,passed
+"test_create_logger[Creating a root logger with no name or level set]
+
+Location: tests/unit/log_test.py
+
+    Test creating a new logger.
+    ","None, None",<RootLogger root (DEBUG)>,<RootLogger root (DEBUG)>,passed
+"test_create_logger[Creating a logger named ""test""]
+
+Location: tests/unit/log_test.py
+
+    Test creating a new logger.
+    ","test, None",<Logger test (DEBUG)>,<Logger test (DEBUG)>,passed
+"test_create_logger[Creating a logger named ""test"" with the level set to INFO]
+
+Location: tests/unit/log_test.py
+
+    Test creating a new logger.
+    ","test, INFO",<Logger test (INFO)>,<Logger test (INFO)>,passed
+"test_create_logger[Creating a logger named ""test"" with the level set to WARNING]
+
+Location: tests/unit/log_test.py
+
+    Test creating a new logger.
+    ","test, WARNING",<Logger test (WARNING)>,<Logger test (WARNING)>,passed
+"test_create_logger[Creating a logger named ""test"" with the level set to ERROR]
+
+Location: tests/unit/log_test.py
+
+    Test creating a new logger.
+    ","test, ERROR",<Logger test (ERROR)>,<Logger test (ERROR)>,passed
