@@ -252,14 +252,15 @@ class ValidUser:
 )
 def test_register(
     client:TestClient, 
-    first_name:str, 
-    last_name:str, 
-    dob:str, 
-    email:str, 
-    password:str, 
-    receive_promotions:bool,
-    expected:list,
+    first_name, 
+    last_name, 
+    dob, 
+    email, 
+    password, 
+    receive_promotions,
+    expected,
     record_data,
+    logger,
 ):
     """
     Testing API endpoint for registering a user
@@ -273,7 +274,7 @@ def test_register(
             'dob': dob,
             'email': email,
             'password': password,
-            'receieve_promotions': receive_promotions,
+            'receive_promotions': receive_promotions,
         }
     )
     record_data(

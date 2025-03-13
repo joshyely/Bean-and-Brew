@@ -17,15 +17,19 @@ def client() -> Generator[TestClient, None, None]:
         yield c
 
 @pytest.fixture
-def token():
-    return create_token(
-        Payload(sub='1', exp=create_expiry(minutes=30))
+def token(valid_id):
+    tok = create_token(
+        Payload(sub=str(valid_id), exp=create_expiry(minutes=30))
     )
-
+    return f'Bearer {tok}'
 
 @pytest.fixture
 def valid_email():
     return 'johndoe@example.com'
+
+@pytest.fixture
+def valid_password():
+    return 'Password$123'
 
 @pytest.fixture
 def valid_first_name():
