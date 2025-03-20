@@ -1,9 +1,8 @@
 import pytest
 import logging
-from typing import Literal
-from typing import Generator
+from typing import Literal, Generator, Sequence
 from fastapi.testclient import TestClient
-from datetime import date
+from datetime import date, datetime
 from app.security import create_token, create_expiry
 from app.schemas.token import Payload
 from app.main import app
@@ -22,6 +21,10 @@ def token(valid_id):
         Payload(sub=str(valid_id), exp=create_expiry(minutes=30))
     )
     return f'Bearer {tok}'
+
+@pytest.fixture
+def today_date():
+    datetime.today()
 
 @pytest.fixture
 def valid_email():
@@ -100,13 +103,19 @@ def logger(request: pytest.FixtureRequest):
 
 @pytest.fixture
 def record_data(request: pytest.FixtureRequest):
-    def func(expected:any, actual:any, test_data:str|list=''):
-        if type(test_data) != str:
-            test_data = ', '.join([str(data) for data in test_data])
+    def format(field):
+        if not field:
+            return ''
+        elif type(field) in (list, tuple):
+            return '\n'.join([f'• {data}' for data in field])
+        elif type(field) == dict:
+            return '\n'.join(f'• {key}: {value}' for key, value in field.items())
+        return str(field)
 
-        request.node.stash['test_data'] = test_data
-        request.node.stash['expected'] = expected
-        request.node.stash['actual'] = actual
+    def func(expected:any, actual:any, test_data:str|Sequence|dict=''):
+        request.node.stash['test_data'] = format(test_data)
+        request.node.stash['expected'] = format(expected)
+        request.node.stash['actual'] = format(actual)
     return func
 
 @pytest.hookimpl(hookwrapper=True)

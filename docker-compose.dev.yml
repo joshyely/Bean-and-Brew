@@ -2,16 +2,20 @@ services:
   backend:
     build:
       context: ./backend
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
+    command: uvicorn app.main:app --host 0.0.0.0 --reload
     container_name: backend-dev
     env_file:
       - .env
     volumes:
       - ./database:/src/database
+      - ./backend/app:/src/app
+      - ./backend/tests:/src/tests
     ports:
       - 8000:8000
     networks:
       dev:
+    
 
   frontend:
     build:

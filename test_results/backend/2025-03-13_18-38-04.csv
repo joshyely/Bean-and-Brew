@@ -1,0 +1,441 @@
+Description of test,Test data to be used (if required),Expected result,Actual result,Comments
+"test_register[First name is empty]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","• None
+• Doe
+• 2003-12-21
+• johndoe@example.com
+• Password$123
+• False",HTTP 422,HTTP 422,passed
+"test_register[Invalid first name with numerical characters]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","• John32
+• Doe
+• 2003-12-21
+• johndoe@example.com
+• Password$123
+• False",HTTP 422,HTTP 422,passed
+"test_register[Invalid first name with symbols]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","• John$
+• Doe
+• 2003-12-21
+• johndoe@example.com
+• Password$123
+• False",HTTP 422,HTTP 422,passed
+"test_register[Last name is empty]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","• John
+• None
+• 2003-12-21
+• johndoe@example.com
+• Password$123
+• False",HTTP 422,HTTP 422,passed
+"test_register[Invalid last name with numerical characters]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","• John
+• Doe49
+• 2003-12-21
+• johndoe@example.com
+• Password$123
+• False",HTTP 422,HTTP 422,passed
+"test_register[Invalid last name with symbols]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","• John
+• Doe£
+• 2003-12-21
+• johndoe@example.com
+• Password$123
+• False",HTTP 422,HTTP 422,passed
+"test_register[Invalid dob as random string]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","• John
+• Doe
+• odihwioh125
+• johndoe@example.com
+• Password$123
+• False",HTTP 422,HTTP 422,passed
+"test_register[Email is empty]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","• John
+• Doe
+• 2003-12-21
+• None
+• Password$123
+• False",HTTP 422,HTTP 422,passed
+"test_register[Invalid email without dot]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","• John
+• Doe
+• 2003-12-21
+• johndoe@example
+• Password$123
+• False",HTTP 422,HTTP 422,passed
+"test_register[Invalid email without @]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","• John
+• Doe
+• 2003-12-21
+• johndoeexample.com
+• Password$123
+• False",HTTP 422,HTTP 422,passed
+"test_register[Invalid email starting with a dot]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","• John
+• Doe
+• 2003-12-21
+• .johndoe@example.com
+• Password$123
+• False",HTTP 422,HTTP 422,passed
+"test_register[Invalid email with more than one @]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","• John
+• Doe
+• 2003-12-21
+• johndoe@@example.com
+• Password$123
+• False",HTTP 422,HTTP 422,passed
+"test_register[Invalid email with two dots next to each other]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","• John
+• Doe
+• 2003-12-21
+• johndoe@example..com
+• Password$123
+• False",HTTP 422,HTTP 422,passed
+"test_register[Password is empty]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","• John
+• Doe
+• 2003-12-21
+• johndoe@example.com
+• None
+• False",HTTP 422,HTTP 422,passed
+"test_register[Password is too short]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","• John
+• Doe
+• 2003-12-21
+• johndoe@example.com
+• Pa$12
+• False",HTTP 422,HTTP 422,passed
+"test_register[Password has no uppercase]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","• John
+• Doe
+• 2003-12-21
+• johndoe@example.com
+• password$123
+• False",HTTP 422,HTTP 422,passed
+"test_register[Password has no lowercase]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","• John
+• Doe
+• 2003-12-21
+• johndoe@example.com
+• PASSWORD$123
+• False",HTTP 422,HTTP 422,passed
+"test_register[Password has no symbol]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","• John
+• Doe
+• 2003-12-21
+• johndoe@example.com
+• password123
+• False",HTTP 422,HTTP 422,passed
+"test_register[Password has no number]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","• John
+• Doe
+• 2003-12-21
+• johndoe@example.com
+• password$
+• False",HTTP 422,HTTP 422,passed
+"test_register[Receieve promotions is not a boolean]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","• John
+• Doe
+• 2003-12-21
+• johndoe@example.com
+• Password$123
+• foihwf",HTTP 422,HTTP 422,passed
+"test_register[Receieve promotions is empty]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","• John
+• Doe
+• 2003-12-21
+• johndoe@example.com
+• Password$123
+• None",HTTP 422,HTTP 422,passed
+"test_register[Valid Registration]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","• John
+• Doe
+• 2003-12-21
+• johndoe@example.com
+• Password$123
+• False",HTTP 201,HTTP 201,passed
+"test_register[User with email already exists]
+
+Location: tests/integration/auth_test.py
+
+    Testing API endpoint for registering a user
+    Endpoint: /auth/register/
+    ","• John
+• Doe
+• 2003-12-21
+• johndoe@example.com
+• Password$123
+• False",HTTP 226,HTTP 226,passed
+"test_get_info
+
+Location: tests/integration/user_test.py
+
+    Test API endpoint for getting user information using a valid JWT token
+    Endpoint: /user/
+    ","• johndoe@example.com
+• Password$123
+• Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzQxODkyODg2fQ.vroIZVr-M6QgMmcTS5gLqkK3GAwbz0Mpt3HEdqRk-mE","• status: HTTP 200
+• returned email: johndoe@example.com","• status: HTTP 200
+• returned email: johndoe@example.com",passed
+"test_get_info_no_token
+
+Location: tests/integration/user_test.py
+
+    Test API endpoint for getting user information with no token
+    Endpoint: /user/
+    ",,HTTP 401,HTTP 401,passed
+"test_get_info_invalid_token
+
+Location: tests/integration/user_test.py
+
+    Test API endpoint for getting user information with an invalid token
+    Endpoint: /user/
+    ",• Bearer roigjr34553oigh,HTTP 401,HTTP 401,passed
+"test_create_user
+
+Location: tests/unit/crud/user_test.py
+
+    Test creating a new user through the crud.
+    ","• memory db session
+• {'email': 'johndoe@example.com', 'password': 'Password$123', 'first_name': 'John', 'last_name': 'Doe', 'dob': datetime.date(2003, 12, 21), 'receieve_promotions': False}","type(result) == User 
+AND
+ result.email == johndoe@example.com","type(result) == <class 'app.models.user.User'> 
+AND
+ result.email == johndoe@example.com",passed
+"test_create_user_exists
+
+Location: tests/unit/crud/user_test.py
+
+    Test attemping to create a new user with an email that already exists.
+    ","• memory db session
+• {'email': 'johndoe@example.com', 'password': 'Password$123', 'first_name': 'John', 'last_name': 'Doe', 'dob': datetime.date(2003, 12, 21), 'receieve_promotions': False}",None,None,passed
+"test_get_user_by_id
+
+Location: tests/unit/crud/user_test.py
+
+    Test getting a user from the crud using their id.
+    ","• memory db session
+• user id: 1","type(result) == User 
+AND
+ result.email == johndoe@example.com","type(result) == <class 'app.models.user.User'> 
+AND
+ result.email == johndoe@example.com",passed
+"test_get_user_by_id_invalid[User with ID does not exist]
+
+Location: tests/unit/crud/user_test.py
+
+    Test to ensure the crud returns None when an invalid user id is entered when trying to retrieve a user.
+    ","• memory db session
+• invalid user id: 32",None,None,passed
+"test_get_user_by_id_invalid[String is passed instead of integer]
+
+Location: tests/unit/crud/user_test.py
+
+    Test to ensure the crud returns None when an invalid user id is entered when trying to retrieve a user.
+    ","• memory db session
+• invalid user id: string",None,None,passed
+"test_get_user_by_email
+
+Location: tests/unit/crud/user_test.py
+
+    Test getting a user from the crud using their email.
+    ","• memory db session
+• email: johndoe@example.com","type(result) == User 
+AND
+ result.email == johndoe@example.com","type(result) == <class 'app.models.user.User'> 
+AND
+ result.email == johndoe@example.com",passed
+"test_get_user_by_email_invalid[User with email does not exist]
+
+Location: tests/unit/crud/user_test.py
+
+    Test to ensure the crud returns None when an invalid user email is entered when trying to retrieve a user.
+    ","• memory db session
+• invalid email: random_email@hotmail.com",None,None,passed
+"test_get_user_by_email_invalid[Wrong variable type for email is passed.]
+
+Location: tests/unit/crud/user_test.py
+
+    Test to ensure the crud returns None when an invalid user email is entered when trying to retrieve a user.
+    ","• memory db session
+• invalid email: 12",None,None,passed
+"test_authenticate_user
+
+Location: tests/unit/crud/user_test.py
+
+    Test authenticating a user with the correct credentials.
+    ","• memory db session
+• email: johndoe@example.com
+• password: Password$123","type(result) == User 
+AND
+ result.email == johndoe@example.com","type(result) == <class 'app.models.user.User'> 
+AND
+ result.email == johndoe@example.com",passed
+"test_authenticate_invalid[Correct Email, Incorrect Password]
+
+Location: tests/unit/crud/user_test.py
+
+    Test the user authentication function with invalid credentials.
+    ","• memory db session
+• email: johndoe@example.com
+• password: Wrongpassword£124",,,passed
+"test_authenticate_invalid[Correct Password, Incorrect Email]
+
+Location: tests/unit/crud/user_test.py
+
+    Test the user authentication function with invalid credentials.
+    ","• memory db session
+• email: wrongemail@example.com
+• password: Password$123",,,passed
+"test_authenticate_invalid[Incorrect Email and Password]
+
+Location: tests/unit/crud/user_test.py
+
+    Test the user authentication function with invalid credentials.
+    ","• memory db session
+• email: wrongemail@example.com
+• password: Wrongpassword£124",,,passed
+"test_create_logger[Creating a root logger with no name or level set]
+
+Location: tests/unit/log_test.py
+
+    Test creating a new logger.
+    ","• None
+• None",<RootLogger root (DEBUG)>,<RootLogger root (DEBUG)>,passed
+"test_create_logger[Creating a logger named ""test""]
+
+Location: tests/unit/log_test.py
+
+    Test creating a new logger.
+    ","• test
+• None",<Logger test (DEBUG)>,<Logger test (DEBUG)>,passed
+"test_create_logger[Creating a logger named ""test"" with the level set to INFO]
+
+Location: tests/unit/log_test.py
+
+    Test creating a new logger.
+    ","• test
+• INFO",<Logger test (INFO)>,<Logger test (INFO)>,passed
+"test_create_logger[Creating a logger named ""test"" with the level set to WARNING]
+
+Location: tests/unit/log_test.py
+
+    Test creating a new logger.
+    ","• test
+• WARNING",<Logger test (WARNING)>,<Logger test (WARNING)>,passed
+"test_create_logger[Creating a logger named ""test"" with the level set to ERROR]
+
+Location: tests/unit/log_test.py
+
+    Test creating a new logger.
+    ","• test
+• ERROR",<Logger test (ERROR)>,<Logger test (ERROR)>,passed
